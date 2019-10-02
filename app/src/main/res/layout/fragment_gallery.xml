@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/white">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/_35sdp"
+            android:visibility="visible"
+            android:id="@+id/linearLayoutMainHide"
+            android:layout_width="0dp"
+            android:background="@color/white"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+                android:id="@+id/btnCamera"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp">
+
+            <ImageView
+                    android:id="@+id/profile_image"
+                    android:src="@drawable/ic_pic_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            <TextView
+
+                    android:gravity="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_gravity="center|bottom"
+                    android:text="add store Picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+        <android.support.v7.widget.RecyclerView
+                android:visibility="visible"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/rev_gallerys"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

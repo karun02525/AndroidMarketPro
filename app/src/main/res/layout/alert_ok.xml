@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" xmlns:tools="http://schemas.android.com/tools"
+                android:background="@android:color/transparent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:background="@android:color/transparent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/dialog_background">
+
+            <TextView
+                    android:id="@+id/txt_booking_confirmation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="90dp"
+                    android:gravity="center"
+                    tools:text="Your verification Pending"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/txt_booking_id4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_booking_confirmation"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:text="Your Shop Id :"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_vender_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_booking_id4"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    tools:text="#RJYS5558056"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            <View
+                    android:layout_marginStart="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:id="@+id/devider"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/tv_vender_id"
+                    android:layout_marginTop="10dp"
+                    android:background="#4645" />
+
+
+            <Button
+                    android:layout_marginBottom="30dp"
+                    android:id="@+id/tv_ok"
+                    style="@style/btn_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/devider"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="5dp"
+                    android:gravity="center"
+                    android:stateListAnimator="@null"
+                    android:text="Done"
+                    android:textAllCaps="false" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+                android:id="@+id/img_traveller"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/non_stroke_circle"
+                android:padding="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vegetable" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

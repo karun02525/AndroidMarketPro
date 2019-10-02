@@ -1,0 +1,78 @@
+﻿Debusgs
+
+{
+ "to" : "dvayDp0q9hA:APA91bFsW8n0iBzboQ-7P7U-RKUhF-x3pXKwtdLWAc87nxmw-NtCDz_SF1teoSQcYxNeuZUBFUsXZJNAm29CKtaLs-T1892zEiwxBQtQylmD8zXvQHlQJyM17hAaVvM074YnsRPe4KIW",
+ "notification" : {
+ "title" : "New Year 2019",
+ "body" :"जिंदगी आपकी खुशियों से भरी रहे"
+ },
+ "data" : {
+ "title" : "winds captain projects",
+ "message":"Best Funny New Year Shayari in hindi",
+ "type":"url",
+ "segment":"link_redirect",
+ "payload":"{'url':'https://www.winds.co.in/'}",
+ "server_time":"2019-01-02 7:02:01"
+ } 
+}
+
+
+
+{
+ "to" : "dbroItTEh6I:APA91bHzhrPxFgVmOKIVbnIRWZnlzWKEKaghNnIwz8cf8Szl28M53OlFtSgQ8GUE0nd1j85BGgUJwsTgY4Bslxyt8Bc7Q5jh8zktv3f8R7a405uU-e6WpRyNMcd9ZuUiyq3kJpDWGXYy",
+ "notification" : {
+ "title" : "New Year 2019",
+ "body" :"जिंदगी आपकी खुशियों से भरी रहे"
+ },
+ "data" : {
+ "title" : "karun  assgin",
+ "message":"ohhh parners",
+ "type":"message",
+ "segment":"partner_profile",
+ "payload":"{'id':148}",
+ "server_time":"2019-01-05 7:02:01"
+ } 
+}
+
+topic Notification
+
+{
+ "to" : "/topics/captain-debug",
+ "notification" : {
+ "title" :"Winds",
+ "body" :"Login to Winds APP"
+ },
+ "data" : {
+ "title" : "winds",
+ "message":"Login to Winds APP",
+ "type":"url",
+ "segment":"link_redirect",
+ "payload":"{'url':'https://www.winds.co.in/'}",
+ "server_time":"2019-01-12 7:02:01"
+ } 
+}
+
+
+Release
+
+
+{
+ "to" : "dDrTFMg8XeM:APA91bFge6COhi_flo_B5dJJQ5edGkNWhy9ceMCd_LN4Nqg-o5dclf39Wt8fUPDA1yAADqw38GZ97kYcdJkPOrTiOkvdo8S9Gcl8bbLE_m7oLSW8s-X1zO_aCRYW2umXhGco5FMDcUEQ",
+ "notification" : {
+ "title" : "Happy Makar Sankranti 2019",
+ "body" :"Happy Makar Sankranti 2019"
+ },
+ "data" : {
+ "title" : "Happy Makar Sankranti ",
+ "message":"Happy Makar Sankranti 2019",
+ "type":"url",
+ "segment":"link_redirect",
+ "payload":"{'url':'https://www.winds.co.in/'}"
+ } 
+}
+
+
+
+Authorization key=AAAA5pvLvV54444444444444353243wd
+
+https://fcm.googleapis.com/fcm/send

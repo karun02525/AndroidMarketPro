@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/popup_window"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_270sdp"
+              android:layout_gravity="bottom|center"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="Verification For Vender"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/green_grass"
+                android:textStyle="normal"/>
+
+    </RelativeLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="#dedede"/>
+
+
+    <TextView
+            android:id="@+id/tv_name"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            tools:text="Karun Kumar"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tv_mob"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            tools:text="798873987"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Spinner
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/sp_category"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:spinnerMode="dropdown"/>
+
+    <View
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d5878787"
+    />
+
+
+    <Button
+            android:id="@+id/btnSubmit"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:background="#565"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

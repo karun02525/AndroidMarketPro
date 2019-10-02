@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".ui.store_list.details.fragement.GalleryViewFragment">
+
+    <android.support.v7.widget.RecyclerView
+            android:visibility="visible"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/rev_gallerys"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+</android.support.constraint.ConstraintLayout>

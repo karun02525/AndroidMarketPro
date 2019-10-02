@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+
+    <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+        <!--Shop ID-->
+        <TextView
+                android:text="Shop ID"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_shop_id"
+                tools:text="#654345"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+        <!--Shop Name-->
+        <TextView
+                android:text="Shop Name"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_shop_name"
+                tools:text="Deepak Mobile Shop"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+        <!--Shop Phone Number-->
+        <TextView
+                android:text="Shop Phone Number"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_shop_no"
+                tools:text="022-3434343"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Shop alternet Number-->
+        <TextView
+                android:text="Alternate Mobile Number "
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_shop_second_no"
+                tools:text="7677654564"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Shop Email id-->
+        <TextView
+                android:text="Shop Email ID"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_shop_email"
+                tools:text="hospital@wind.co.in"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Address-->
+        <TextView
+                android:text="Address"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_address"
+                tools:text="Karun Kumar"
+                android:inputType="textMultiLine"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Near By-->
+        <TextView
+                android:text="Near By"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_near_by"
+                tools:text="SBI Bank"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+
+        <!--pin Code-->
+        <TextView
+                android:text="Pin Code"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_pincode"
+                tools:text="821108"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+
+        <!--Owner Name-->
+        <TextView
+                android:text="Owner Name"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_name"
+                tools:text="Karun Kumar"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Owner Mobile Number-->
+        <TextView
+                android:text="Owner Mobile Number"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_owner_mobile"
+                tools:text="937436763"
+                style="@style/tv_value"/>
+
+        <View style="@style/MyViewStyle"/>
+
+
+        <!--Owner Email ID-->
+        <TextView
+                android:text="Owner Email ID"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_owner_email"
+                tools:text="umeh@gmail.com"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+        <!--Owner website-->
+        <TextView
+                android:text="WebSite"
+                style="@style/tv_title"/>
+        <TextView
+                android:id="@+id/tv_website"
+                tools:text="www.pusauli.com"
+                style="@style/tv_value"/>
+        <View style="@style/MyViewStyle"/>
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

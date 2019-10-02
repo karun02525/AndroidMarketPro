@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "44215748639",
+    "firebase_url": "https://pusauligola-cc02f.firebaseio.com",
+    "project_id": "pusauligola-cc02f",
+    "storage_bucket": "pusauligola-cc02f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44215748639:android:193e30ce783f88b4",
+        "android_client_info": {
+          "package_name": "com.pusauli.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44215748639-gornnfedepqvq7pf4q2bubspjkdj6d34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-t04oZFwg4HjG9_2imjbVfRsU3RShIe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44215748639-gornnfedepqvq7pf4q2bubspjkdj6d34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

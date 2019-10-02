@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#330E75</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--Indigo 500-->
+    <color name="primary_500">#3F51B5</color>
+    <!--Indigo 700-->
+    <color name="primary_700">#303F9F</color>
+    <!--Pink 500-->
+    <color name="accent_500">#E91E63</color>
+    <!--Pink 700-->
+    <color name="accent_700">#C2185B</color>
+    <color name="black_trans80">#31000000</color>
+
+    <color name="indicator_unselected">#4D050505</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent_black">#c8000000</color>
+    <color name="transparent_white">#00ffffff</color>
+    <color name="tv_title_color">#071F30</color>
+    <color name="tv_value_color">#071F30</color>
+
+    <color name="app_color">#EB655D</color>
+    <color name="red_dark">#910909</color>
+    <color name="green">#24f251</color>
+    <color name="golden">#f9f533</color>
+    <color name="green_grass">#22c646</color>
+    <color name="red_dark_selected">#760505</color>
+    <!--gursharan sir-->
+    <color name="unselected_text">#8c92b9</color>
+    <color name="white_tint">#fcf1f1</color>
+    <color name="background">#f9f9f9</color>
+    <color name="orange">#f68933</color>
+    <color name="orange_light">#f7f49142</color>
+    <color name="black_tint">#86000000</color>
+    <color name="light_black">#43000000</color>
+    <color name="black_ripple">#716f6f</color>
+    <color name="grey_line">#e1e1e1</color>
+    <color name="grey_circle">#EBEDEC</color>
+    <color name="grey_circle_txt">#D4D5D9</color>
+    <color name="grey_text">#a3a3a3</color>
+    <color name="grey_text_dark">#80000000</color>
+    <color name="light_grey">#e9e9e9</color>
+    <color name="facebook">#3b579d</color>
+    <color name="facebook_tint">#5b78b4</color>
+    <color name="gmail">#dd4b39</color>
+    <color name="gmail_tint">#9dd1231d</color>
+    <color name="red">#ff0000</color>
+    <color name="red_light">#ef1818</color>
+    <color name="dark_cyan">#2c896b</color>
+    <color name="card_shadow">#10000000</color>
+    <color name="dark_grey">#484848</color>
+    <color name="trasparent_background">#83ffffff</color>
+    <color name="green_color">#5acf67</color>
+    <color name="grey_color">#666363</color>
+    <color name="blue">#585fe7</color>
+
+    <color name="gold">#FFCF02</color>
+    <color name="cleaner">#1DD0CA</color>
+    <color name="plumber">#5E9CEB</color>
+
+    <color name="purple">#AB65CE</color>
+    <color name="yellow">#f6c02f</color>
+    <color name="green_light">#99CC00</color>
+
+    <color name="trasparent_light">#55ffffff</color>
+    <!---->
+    <color name="ads_color1">#AB65CE</color>
+    <color name="ads_color2">#44c9ac</color>
+    <color name="ads_color3">#68ec71</color>
+    <color name="ads_color4">#fc8c14</color>
+    <color name="ads_color5">#cf459f</color>
+    <color name="ads_color6">#68cae6</color>
+    <color name="ads_color7">#e27287</color>
+    <color name="ads_color8">#ec1f3e</color>
+    <color name="ads_color9">#27b90d</color>
+    <color name="ads_color10">#d2c91e</color>
+    <color name="ads_color11">#c90ebf</color>
+
+    <color name="tint_black_start_color">#08919191</color>
+    <color name="tint_black_center_color">#21171c19</color>
+    <color name="tint_black_end_color">#59000000</color>
+
+</resources>
