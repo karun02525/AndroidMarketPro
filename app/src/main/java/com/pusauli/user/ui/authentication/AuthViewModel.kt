@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.pusauli.user.BuildConfig
+import com.pusauli.user.model.OTPModel
 import com.pusauli.user.model.ResultDetails
+import com.pusauli.user.model.ResultOTP
 import com.pusauli.user.model.ResultUpdateProfile
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
@@ -22,6 +24,11 @@ class AuthViewModel : ViewModel() {
 
     var requestData = MutableLiveData<ResultDetails>()
     var requestDataUpdateProfile = MutableLiveData<ResultUpdateProfile>()
+    var requestDataOTP = MutableLiveData<ResultOTP>()
+    var requestDataOTPVerify = MutableLiveData<OTPModel>()
+
+
+
     val errorMess = MutableLiveData<String>()
     val successMessage = MutableLiveData<String>()
 
@@ -30,6 +37,8 @@ class AuthViewModel : ViewModel() {
     val verName = BuildConfig.VERSION_NAME
     val verCode = BuildConfig.VERSION_CODE
     val deviceName = com.pusauli.user.utils.deviceName
+
+
 
 
     /*Login*/
@@ -55,14 +64,58 @@ class AuthViewModel : ViewModel() {
             )
     }
 
-    /*SignUP*/
+    /*Send OTP*/
     @SuppressLint("CheckResult")
-    fun onSignUpSubmit(fname: String, lname: String, mob: String, email: String, pass: String, gender: String, city: String) {
-        log("Login", "Data=>$fname ,$lname  $mob ,$email ,$pass ,$gender ,$city ")
+    fun onSendOtpAPI(mobileNumber: String) {
         val map = HashMap<String, String>()
+        map["mobile"] = mobileNumber
+        RestClient.webServices().onSendOtp(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it.status!!) {
+                    requestDataOTP.value = it.data
+                }
+            },
+                {
+                    val mess = NetworkUtil.isHttpStatusCode(it)
+                    log("Login", "Error=>$mess")
+                    errorMess.value = mess
+                }
+            )
+    }
+
+
+    /*verify OTP*/
+    @SuppressLint("CheckResult")
+    fun onVerifyOtpAPI(mobileNumber: String,otp: String) {
+        val map = HashMap<String, String>()
+        map["mobile"] = mobileNumber
+        map["otp"] = otp
+        RestClient.webServices().onSendVerityOtp(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it.status!!) {
+                    requestDataOTPVerify.value = it
+                }
+            },
+                {
+                    val mess = NetworkUtil.isHttpStatusCode(it)
+                    log("Login", "Error=>$mess")
+                    errorMess.value = mess
+                }
+            )
+    }
+
+    /*Create Account*/
+    @SuppressLint("CheckResult")
+    fun onSignUpSubmit(mobile: String,fname: String, lname: String, email: String, pass: String, gender: String, city: String) {
+        log("Login", "Data=>$fname ,$lname  $mobile ,$email ,$pass ,$gender ,$city ")
+        val map = HashMap<String, String>()
+        map["mobile"] = mobile
         map["first_name"] = fname
         map["last_name"] = lname
-        map["mobile"] = mob
         map["email"] = email
         map["password"] = pass
         map["gender"] = gender

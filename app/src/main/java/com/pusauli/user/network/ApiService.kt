@@ -13,6 +13,14 @@ interface ApiService {
     @POST("/api/authenticate/login")
     fun login(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 
+    @POST("/api/authenticate/login")
+    fun onSendOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
+
+
+    @POST("/api/authenticate/login")
+    fun onSendVerityOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
+
+
     @POST("/api/authenticate/create-user")
     fun signUp(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 

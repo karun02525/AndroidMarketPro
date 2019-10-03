@@ -88,12 +88,6 @@ class HomeFragment : Fragment() {
 
 
 
-
-
-
-
-
-
     class MenuAdapter(var list: ArrayList<CategoriModel>, var listener: ItemClickListener) :
         RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
         interface ItemClickListener {

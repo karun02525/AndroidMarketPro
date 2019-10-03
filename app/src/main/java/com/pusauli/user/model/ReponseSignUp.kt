@@ -26,7 +26,7 @@ data class ResultDetails(
     var userId: String?,
     @SerializedName("city")
     var city: String?,
-    @SerializedName("authentication")
+    @SerializedName("token")
     var authentication: String?,
     @SerializedName("user_avatar")
     var user_avatar: String?

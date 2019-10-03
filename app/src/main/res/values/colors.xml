@@ -84,4 +84,10 @@
     <color name="tint_black_center_color">#21171c19</color>
     <color name="tint_black_end_color">#59000000</color>
 
+
+    <color name="color_divider">#F1F1F1</color>
+    <color name="color_button">#233ECF</color>
+    <color name="dark_blue_text">#2d346f</color>
+
+
 </resources>

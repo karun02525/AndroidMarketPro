@@ -162,4 +162,46 @@
     <string name="title_activity_maps">Map</string>
 
 
+    <string name="alredy_login">Already a Member?</string>
+    <string name="alert_mobile_number">Please Enter Mobile Number</string>
+    <string name="alert_valid_mobile_number">Please Enter Valid Mobile Number</string>
+    <string name="alert_otp">Please Enter OTP</string>
+    <string name="alert_name">Please Enter your Name</string>
+    <string name="alert_pasword">Please Enter Password</string>
+    <string name="hint_pasword">Enter Password</string>
+    <string name="alert_valid_pasword">Please enter valid password</string>
+    <string name="alert_confirm_pasword">Please Enter Confirm Password</string>
+    <string name="hint_confirm_pasword">Enter Confirm Password</string>
+    <string name="alert_valid_confirm_pasword">Please enter valid Confirm password</string>
+    <string name="alert_confirm_pasword_not_same">Password and confirm password should be same</string>
+    <string name="alert_valid_name">Your name should not be less than 3 charecters</string>
+    <string name="alert_valid_otp">Please Enter Valid OTP</string>
+    <string name="msg_otp_success">OTP Send Successfully</string>
+    <string name="msg_create_account">Create Account</string>
+    <string name="msg_mobile_number">Mobile Number</string>
+    <string name="msg_verify_otp">verify otp</string>
+
+    <string name="reset_password">Reset Password</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="continue_to_signin">Continue to SignIn</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="otp">OTP</string>
+    <string name="send_otp">SEND OTP</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="otp_already_have_an_otp">Already have an OTP?</string>
+    <string name="password">Password</string>
+    <string name="first_name">First Name</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="gender">Gender</string>
+    <string name="email_id_optional">Email ID (optional)</string>
+    <string name="enter_email_id">Enter Email id</string>
+    <string name="city_village">City/Village</string>
+    <string name="enter_city_or_village">Enter city or village</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="login">Login</string>
+    <string name="otp_enter">Please enter OTP</string>
+    <string name="enter_otp_valid">Please Enter valid OTP</string>
+
 </resources>

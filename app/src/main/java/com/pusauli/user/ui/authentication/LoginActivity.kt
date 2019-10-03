@@ -105,6 +105,6 @@ class LoginActivity : BaseActivity() {
     }
 
     fun btnSignUp(v: View) {
-        startNewActivityNoFinish(SignUp::class.java)
+        startNewActivityNoFinish(OtpSendActivity::class.java)
     }
 }
