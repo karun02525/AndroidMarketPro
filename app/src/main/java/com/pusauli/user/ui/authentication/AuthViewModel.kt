@@ -110,16 +110,13 @@ class AuthViewModel : ViewModel() {
 
     /*Create Account*/
     @SuppressLint("CheckResult")
-    fun onSignUpSubmit(mobile: String,fname: String, lname: String, email: String, pass: String, gender: String, city: String) {
-        log("Login", "Data=>$fname ,$lname  $mobile ,$email ,$pass ,$gender ,$city ")
+    fun onSignUpSubmit(mobile: String,fname: String, lname: String, pass: String, gender: String) {
         val map = HashMap<String, String>()
         map["mobile"] = mobile
         map["first_name"] = fname
         map["last_name"] = lname
-        map["email"] = email
         map["password"] = pass
         map["gender"] = gender
-        map["city"] = city
         RestClient.webServices().signUp(map)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

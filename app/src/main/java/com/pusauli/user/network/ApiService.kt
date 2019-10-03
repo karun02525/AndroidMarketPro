@@ -13,13 +13,11 @@ interface ApiService {
     @POST("/api/authenticate/login")
     fun login(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 
-    @POST("/api/authenticate/login")
+    @POST("/api/authenticate/send-otp")
     fun onSendOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
 
-
-    @POST("/api/authenticate/login")
+    @POST("/api/authenticate/verify-otp")
     fun onSendVerityOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
-
 
     @POST("/api/authenticate/create-user")
     fun signUp(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
@@ -32,6 +30,9 @@ interface ApiService {
 
     @POST("/api/authenticate/change-password")
     fun changePassword(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
+
+    @GET("/api/get-category")
+    fun getCategory(): Observable<CategoryModel>
 
     @Multipart
     @POST("/api/authenticate/edit-profile")

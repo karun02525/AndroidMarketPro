@@ -18,10 +18,8 @@ class CreateActivity : BaseActivity() {
     var mobile = ""
     var fname = ""
     var lname = ""
-    var email = ""
     var pass = ""
     var cnfpass = ""
-    var city = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +39,7 @@ class CreateActivity : BaseActivity() {
     fun btnSubmit(v: View) {
         if (validation()) {
             showProgress()
-            instanceViewModel.onSignUpSubmit(mobile, fname, lname, email, pass, gender, city)
+            instanceViewModel.onSignUpSubmit(mobile, fname, lname, pass, gender)
         }
     }
 
@@ -82,10 +80,8 @@ class CreateActivity : BaseActivity() {
 
         fname = edt_first_name.text.toString()
         lname = edt_last_name.text.toString()
-        email = edt_email.text.toString()
         pass = edt_password.text.toString()
         cnfpass = edt_cnf_pass.text.toString()
-        city = edt_city.text.toString()
 
         return when {
             fname.isBlank() -> {
@@ -98,14 +94,6 @@ class CreateActivity : BaseActivity() {
                 showSnackBar(getString(R.string.login_validation_lname))
                 false
             }
-            !email.isBlank() -> {
-                hideSoftKeyboard()
-                if (email.isEmail()) {
-                    showSnackBar(getString(R.string.login_validation_email))
-                    false
-                }
-                true
-            }
             pass.isBlank() -> {
                 hideSoftKeyboard()
                 showSnackBar(getString(R.string.login_validation_password))
@@ -116,14 +104,19 @@ class CreateActivity : BaseActivity() {
                 showSnackBar(getString(R.string.login_validation_valid_password))
                 false
             }
-            pass.length != cnfpass.length -> {
+            cnfpass.isBlank() -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_valid_password))
+                showSnackBar(getString(R.string.crf_pass))
                 false
             }
-            city.isBlank() -> {
+            cnfpass.length < 7 -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_city))
+                showSnackBar(getString(R.string.crf_pass_valid))
+                false
+            }
+            pass != cnfpass -> {
+                hideSoftKeyboard()
+                showSnackBar(getString(R.string.password_not_match))
                 false
             }
             else -> {

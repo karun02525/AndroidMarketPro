@@ -51,8 +51,11 @@ class OtpVerifyActivity : BaseActivity() {
 
     private fun successData(it: OTPModel?) {
            if(it!!.status!!){
-               startActivity(Intent(this, CreateActivity::class.java)
-                       .putExtra("mobile", mobile))
+               val intent = Intent(this, CreateActivity::class.java)
+               intent.putExtra("mobile", mobile)
+               intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+               startActivity(intent)
+               finish()
            }
     }
 
@@ -68,12 +71,12 @@ class OtpVerifyActivity : BaseActivity() {
         return when {
             otp.isBlank() -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_mobile_numbers))
+                showSnackBar(getString(R.string.otp_enter))
                 false
             }
             otp.length != 6 -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_valid_mobile_numbers))
+                showSnackBar(getString(R.string.enter_otp_valid))
                 false
             }
             else ->{

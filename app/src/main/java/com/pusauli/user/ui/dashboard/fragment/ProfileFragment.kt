@@ -60,6 +60,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var adpSpinner: SpinnerAdapter
     private var selectedSpinnerValue = ""
     private val uid = sp.userId
+    @SuppressLint("DefaultLocale")
     private val name = sp.userName!!.toUpperCase()
     private val mobile = sp.mobileNumber
 

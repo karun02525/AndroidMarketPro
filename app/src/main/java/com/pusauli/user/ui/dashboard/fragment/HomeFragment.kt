@@ -1,6 +1,7 @@
 package com.pusauli.user.ui.dashboard.fragment
 
 import android.annotation.SuppressLint
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,10 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pusauli.user.R
-import com.pusauli.user.model.CategoriModel
-import com.pusauli.user.model.getCatMenuData
+import com.pusauli.user.model.DataCategory
+import com.pusauli.user.mvvm.DashboardViewModel
+import com.pusauli.user.network.Const
+import com.pusauli.user.network.Const.CATEGORY_AVATAR_BASE_URL
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.ui.store_list.StoreListActivity
+import com.pusauli.user.utils.loadImage
+import com.pusauli.user.utils.showSnackBar
 import kotlinx.android.synthetic.main.adapter_menu_categories.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import technolifestyle.com.imageslider.FlipperView
@@ -28,31 +33,55 @@ class HomeFragment : Fragment() {
         }
     }
 
-
-    private var list: ArrayList<CategoriModel> = getCatMenuData()
+    private val instanceViewModel by lazy { DashboardViewModel() }
+    private var list: ArrayList<DataCategory> = arrayListOf()
     private lateinit var mActivity: MainActivity
+    private lateinit var rec:RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity=(activity!! as MainActivity)
+        initObservers()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v= inflater.inflate(R.layout.fragment_home, container, false)
         initView(v)
+        apiCall()
         return v
+    }
+
+    private fun apiCall() {
+        mActivity.showProgress()
+        instanceViewModel.getCategoryApi()
+    }
+
+    private fun initObservers() {
+        instanceViewModel.requestCategoryData.observe(this, Observer {
+            mActivity.hideProgress()
+            successData(it)
+        })
+        instanceViewModel.errorMess.observe(this, Observer {
+            mActivity.hideProgress()
+            mActivity.showSnackBar(it!!)
+        })
+    }
+
+    private fun successData(it: List<DataCategory>?) {
+        list= it!! as ArrayList<DataCategory>
+        val mLangAdapter = MenuAdapter(list, object : MenuAdapter.ItemClickListener {
+            override fun onItemClicked(repos: DataCategory) {
+                onSendStoreList(repos.categoryId!!,repos.categoryName!!)
+            }
+        })
+        rec.adapter = mLangAdapter
     }
 
     private fun initView(v: View?) {
         setLayout(v)
-        val rec=v!!.recyclerView
+        rec=v!!.recyclerView
         rec.layoutManager = GridLayoutManager(mActivity, 3)
-        val mLangAdapter = MenuAdapter(list, object : MenuAdapter.ItemClickListener {
-            override fun onItemClicked(repos: CategoriModel) {
-                onSendStoreList(repos.code,repos.name)
-            }
-        })
-        rec.adapter = mLangAdapter
+
 
     }
 
@@ -86,12 +115,10 @@ class HomeFragment : Fragment() {
     }
 
 
-
-
-    class MenuAdapter(var list: ArrayList<CategoriModel>, var listener: ItemClickListener) :
+    class MenuAdapter(var list: ArrayList<DataCategory>, var listener: ItemClickListener) :
         RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
         interface ItemClickListener {
-            fun onItemClicked(repos: CategoriModel)
+            fun onItemClicked(repos: DataCategory)
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val v = LayoutInflater.from(parent.context).inflate(R.layout.adapter_menu_categories, parent, false)
@@ -107,9 +134,9 @@ class HomeFragment : Fragment() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             @SuppressLint("SetTextI18n")
             val context = itemView.context
-            fun bindItems(model: CategoriModel) {
-                itemView.img.setImageResource(model.img)
-                itemView.txt.text=model.name
+            fun bindItems(model: DataCategory) {
+                itemView.img.loadImage(CATEGORY_AVATAR_BASE_URL+model.categoryAvatar)
+                itemView.txt.text=model.categoryName
                 itemView.setOnClickListener {
                     listener.onItemClicked(model)
                 }

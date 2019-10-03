@@ -146,9 +146,10 @@
     <string name="enter_old_password">Please enter your old password</string>
     <string name="login_validation_valid_password">Passwords must be at least 8 characters long</string>
     <string name="crf_pass">Please enter confirm password</string>
+    <string name="crf_pass_valid">Please enter valid confirm password</string>
     <string name="login_forgot_passwords">Forgot Password?</string>
     <string name="enter_new_password">Please enter new Password</string>
-    <string name="password_not_match">Current password and new password must be same</string>
+    <string name="password_not_match">New password and confirm password must be same</string>
     <string name="login_validation_city">Please enter city/village</string>
     <string name="alert_ok">OK</string>
 

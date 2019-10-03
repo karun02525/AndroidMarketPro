@@ -73,12 +73,12 @@ class OtpSendActivity : BaseActivity() {
         return when {
             mobileNumber.isBlank() -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.otp_enter))
+                showSnackBar(getString(R.string.login_validation_mobile_numbers))
                 false
             }
-            mobileNumber.length != 6 -> {
+            mobileNumber.length != 10 -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.enter_otp_valid))
+                showSnackBar(getString(R.string.login_validation_valid_mobile_numbers))
                 false
             }
             else ->{

@@ -178,38 +178,6 @@
                 </android.support.design.widget.TextInputLayout>
 
 
-                <!--Enter Email -->
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="@string/email_id_optional"
-                        android:textColor="@color/dark_blue_text"
-                        android:textSize="13sp"
-                        tools:ignore="RtlSymmetry" />
-                <android.support.design.widget.TextInputLayout
-                        android:id="@+id/edit_emai"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:hintEnabled="false"
-                        app:passwordToggleEnabled="true">
-
-                    <android.support.design.widget.TextInputEditText
-                            android:id="@+id/edt_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/color_divider"
-                            android:hint="@string/enter_email_id"
-                            android:imeOptions="actionNext"
-                            android:maxLines="1"
-                            android:maxLength="30"
-                            android:inputType="textEmailAddress"
-                            android:paddingEnd="@dimen/_14sdp"
-                            android:paddingBottom="@dimen/_14sdp"
-                            android:textSize="13sp"
-                            tools:ignore="RtlSymmetry" />
-                </android.support.design.widget.TextInputLayout>
-
                 <!--Enter Password -->
                 <TextView
                         android:layout_width="wrap_content"
@@ -278,39 +246,6 @@
                             tools:ignore="RtlSymmetry" />
                 </android.support.design.widget.TextInputLayout>
 
-
-
-                <!--Enter City -->
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="@string/city_village"
-                        android:textColor="@color/dark_blue_text"
-                        android:textSize="13sp"
-                        tools:ignore="RtlSymmetry" />
-                <android.support.design.widget.TextInputLayout
-                        android:id="@+id/edit_v"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:hintEnabled="false"
-                        app:passwordToggleEnabled="true">
-
-                    <android.support.design.widget.TextInputEditText
-                            android:id="@+id/edt_city"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/color_divider"
-                            android:hint="@string/enter_city_or_village"
-                            android:imeOptions="actionNext"
-                            android:maxLines="1"
-                            android:maxLength="20"
-                            android:paddingEnd="@dimen/_14sdp"
-                            android:paddingBottom="@dimen/_14sdp"
-                            android:textSize="13sp"
-                            app:passwordToggleEnabled="true"
-                            tools:ignore="RtlSymmetry" />
-                </android.support.design.widget.TextInputLayout>
 
 
             </LinearLayout>
