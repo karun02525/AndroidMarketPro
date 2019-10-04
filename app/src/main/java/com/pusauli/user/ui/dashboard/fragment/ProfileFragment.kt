@@ -16,12 +16,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.SpinnerAdapter
 import com.myhexaville.smartimagepicker.ImagePicker
 import com.pusauli.user.R
+import com.pusauli.user.model.DataCategory
 import com.pusauli.user.model.ResponseVenderVerify
 import com.pusauli.user.model.ResultUpdateProfile
 import com.pusauli.user.mvvm.AuthVenderViewModel
+import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
@@ -30,15 +33,11 @@ import com.pusauli.user.ui.authentication.ChangePasswordActivity
 import com.pusauli.user.ui.authentication.LoginActivity
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.ui.vender.VenderActivity
-import com.pusauli.user.ui.vender.category.CategoryData
-import com.pusauli.user.ui.vender.category.SpAdapter
-import com.pusauli.user.ui.vender.category.getCatData
+import com.pusauli.user.ui.category.CategorySpinnerAdapter
 import com.pusauli.user.utils.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.alert_dialog.*
 import kotlinx.android.synthetic.main.alert_ok.*
-import kotlinx.android.synthetic.main.alert_ok.tv_ok
 import kotlinx.android.synthetic.main.dialog_vender_verification.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.File
@@ -56,17 +55,22 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private val sp by lazy { SharedPref.instance }
     private val instanceViewModel by lazy { AuthViewModel() }
     private val instanceVenderViewModel by lazy { AuthVenderViewModel() }
-    private var listSpinner: ArrayList<CategoryData> = getCatData()
+
+    private val instanceCategoryViewModel by lazy { CategoryViewModel() }
+    private var listSpinner: ArrayList<DataCategory> = arrayListOf()
+
+    private lateinit var viewBind: View
     private lateinit var adpSpinner: SpinnerAdapter
     private var selectedSpinnerValue = ""
     private val uid = sp.userId
+
     @SuppressLint("DefaultLocale")
     private val name = sp.userName!!.toUpperCase()
     private val mobile = sp.mobileNumber
 
     private var imagePicker: ImagePicker? = null
     private var pathImgBack: File? = null
-    private lateinit var viewes: View
+    private lateinit var spinnerCategory: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,19 +80,18 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_profile, container, false)
-        initView(v)
+        viewBind=v
+        apiCategoryCall()
+        initView()
         return v
     }
 
-    private fun initView(v: View?) {
-        viewes = v!!
-        v.apply {
+
+
+    private fun initView() {
+        viewBind.apply {
             this.txt_user_name.text = name
             this.txt_gender.text = sp.gender
             this.txt_phone.text = mobile
@@ -121,9 +124,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
     private fun openBottomSheet() {
-
         val view = layoutInflater.inflate(R.layout.dialog_vender_verification, null)
-        // val radio1=view.radio_1
+        spinnerCategory=view!!.sp_category
 
         val mBottomSheetDialog = Dialog(mActivity, R.style.MaterialDialogSheet)
         mBottomSheetDialog.setContentView(view)
@@ -142,22 +144,37 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
             instanceVenderViewModel.submitVenderAPI(uid, name, mobile, selectedSpinnerValue)
             mBottomSheetDialog.dismiss()
         }
-
-        initSpinner(view)
-
+        initCategoryObservers()
     }
 
-    private fun initSpinner(view: View) {
-        val sp_cat = view.sp_category
-        adpSpinner = SpAdapter(mActivity, listSpinner)
-        sp_cat.adapter = adpSpinner
-        sp_cat.onItemSelectedListener = this
+
+    private fun apiCategoryCall() {
+        instanceCategoryViewModel.getCategoryApi()
     }
+
+
+    private fun initCategoryObservers() {
+        instanceCategoryViewModel.requestCategoryData.observe(this, Observer {
+            successData(it)
+        })
+        instanceCategoryViewModel.errorMess.observe(this, Observer {
+            mActivity.showSnackBar(it!!)
+        })
+    }
+
+    private fun successData(it: List<DataCategory>?) {
+        listSpinner= it!! as ArrayList<DataCategory>
+       // listSpinner[0].categoryName="--Select Category--"
+        adpSpinner = CategorySpinnerAdapter(mActivity, listSpinner)
+        spinnerCategory.adapter = adpSpinner
+        spinnerCategory.onItemSelectedListener = this
+    }
+
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        selectedSpinnerValue = listSpinner[position].code
+        selectedSpinnerValue = listSpinner[position].categoryId!!
     }
 
 
@@ -187,14 +204,14 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
             pathImgBack = imagePicker!!.imageFile
             setProgress(true)
             Handler().postDelayed({ uploadProfile() }, 100)
-            viewes.img_user_img.setImageURI(imageUri)
+            viewBind.img_user_img.setImageURI(imageUri)
         }.setWithImageCrop(40, 40)
 
     }
 
 
     private fun setProfilePic() {
-        viewes.img_user_img.loadImageProfile(Const.PROFILE_AVATAR_BASE_URL+sp.profileAvatar!!)
+        viewBind.img_user_img.loadImageProfile(Const.PROFILE_AVATAR_BASE_URL+sp.profileAvatar!!)
     }
 
     @SuppressLint("CheckResult")

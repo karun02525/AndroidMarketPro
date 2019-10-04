@@ -10,7 +10,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class DashboardViewModel : ViewModel() {
+class CategoryViewModel : ViewModel() {
 
     val requestCategoryData = MutableLiveData<List<DataCategory>>()
     val errorMess = MutableLiveData<String>()

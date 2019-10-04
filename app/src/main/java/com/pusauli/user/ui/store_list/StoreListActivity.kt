@@ -8,9 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.pusauli.user.R
-import com.pusauli.user.model.ResponseStoreList
 import com.pusauli.user.model.StoreListResult
 import com.pusauli.user.network.Const.PROFILE_AVATAR_BASE_URL
 import com.pusauli.user.network.Const.STORE_AVATAR_BASE_URL
@@ -18,7 +16,7 @@ import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
 import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.store_list.details.DetailsActivity
-import com.pusauli.user.ui.vender.fragment.ZoomImageActivity
+import com.pusauli.user.ui.common.ZoomImageActivity
 import com.pusauli.user.utils.SharedPref
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.loadImageProfile

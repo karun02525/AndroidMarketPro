@@ -12,8 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.pusauli.user.R
 import com.pusauli.user.model.DataCategory
-import com.pusauli.user.mvvm.DashboardViewModel
-import com.pusauli.user.network.Const
+import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const.CATEGORY_AVATAR_BASE_URL
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.ui.store_list.StoreListActivity
@@ -33,7 +32,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private val instanceViewModel by lazy { DashboardViewModel() }
+    private val instanceViewModel by lazy { CategoryViewModel() }
     private var list: ArrayList<DataCategory> = arrayListOf()
     private lateinit var mActivity: MainActivity
     private lateinit var rec:RecyclerView

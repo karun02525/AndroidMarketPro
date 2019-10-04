@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.vender.fragment
+package com.pusauli.user.ui.vender.shop_fragment
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
@@ -14,13 +14,12 @@ import com.pusauli.user.model.ResultStoreDetails
 import com.pusauli.user.mvvm.VenderViewListViewModel
 import com.pusauli.user.network.Const
 import com.pusauli.user.ui.vender.VenderActivity
-import com.pusauli.user.ui.vender.fragment.fragement_details.GalleryViewFragmentVender
-import com.pusauli.user.ui.vender.fragment.fragement_details.MapViewFragmentVender
-import com.pusauli.user.ui.vender.fragment.fragement_details.ViewFragmentVender
+import com.pusauli.user.ui.vender.register_shop_details.GalleryViewFragmentVender
+import com.pusauli.user.ui.vender.register_shop_details.MapViewFragmentVender
+import com.pusauli.user.ui.vender.register_shop_details.ViewFragmentVender
 import com.pusauli.user.utils.SharedPref
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.loadImageProfile
-import com.pusauli.user.utils.log
 import kotlinx.android.synthetic.main.fragment_vender.view.*
 
 

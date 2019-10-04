@@ -13,7 +13,7 @@ import com.pusauli.user.R
 import com.pusauli.user.model.GalleryDetails
 import com.pusauli.user.network.Const
 import com.pusauli.user.ui.store_list.details.DetailsActivity
-import com.pusauli.user.ui.vender.fragment.ZoomImageActivity
+import com.pusauli.user.ui.common.ZoomImageActivity
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.log
 import kotlinx.android.synthetic.main.adapter_gallery.view.*

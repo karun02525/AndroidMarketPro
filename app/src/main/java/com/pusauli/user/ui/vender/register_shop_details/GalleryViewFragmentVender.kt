@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.vender.fragment.fragement_details
+package com.pusauli.user.ui.vender.register_shop_details
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,7 +13,7 @@ import com.pusauli.user.R
 import com.pusauli.user.model.GalleryDetails
 import com.pusauli.user.network.Const
 import com.pusauli.user.ui.vender.VenderActivity
-import com.pusauli.user.ui.vender.fragment.ZoomImageActivity
+import com.pusauli.user.ui.common.ZoomImageActivity
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.log
 import kotlinx.android.synthetic.main.adapter_gallery.view.*

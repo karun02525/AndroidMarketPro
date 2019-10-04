@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.vender.fragment.fragement_details
+package com.pusauli.user.ui.vender.register_shop_details
 
 
 import android.os.Bundle

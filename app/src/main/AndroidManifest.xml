@@ -102,12 +102,9 @@
                 android:name=".ui.store_list.StoreListActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppThemesNoTitle" />
-        <activity
-                android:name=".ui.vender.category.LanguageActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppThemesNoTitle" />
-        <activity
-                android:name=".ui.vender.fragment.ZoomImageActivity"
+
+          <activity
+                android:name=".ui.common.ZoomImageActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppThemesNoTitle" />
 

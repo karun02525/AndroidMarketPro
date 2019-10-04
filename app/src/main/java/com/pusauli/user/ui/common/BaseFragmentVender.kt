@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.vender.fragment
+package com.pusauli.user.ui.common
 
 import android.content.Context
 import android.os.Bundle

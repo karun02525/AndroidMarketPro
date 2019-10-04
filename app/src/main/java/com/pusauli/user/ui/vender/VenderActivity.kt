@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.pusauli.user.R
 import com.pusauli.user.ui.dashboard.BaseActivity
-import com.pusauli.user.ui.vender.fragment.GalleryFragment
-import com.pusauli.user.ui.vender.fragment.RegistationFragment
-import com.pusauli.user.ui.vender.fragment.VenderFragment
+import com.pusauli.user.ui.vender.shop_fragment.GalleryFragment
+import com.pusauli.user.ui.vender.shop_fragment.RegistationFragment
+import com.pusauli.user.ui.vender.shop_fragment.VenderFragment
 import kotlinx.android.synthetic.main.activity_vender.*
 
 

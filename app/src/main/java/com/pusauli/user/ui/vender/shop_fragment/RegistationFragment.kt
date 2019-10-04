@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.vender.fragment
+package com.pusauli.user.ui.vender.shop_fragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -20,6 +20,7 @@ import com.pusauli.user.R
 import com.pusauli.user.network.Const
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
+import com.pusauli.user.ui.common.BaseFragmentVender
 import com.pusauli.user.ui.vender.VenderActivity
 import com.pusauli.user.utils.SharedPref
 import com.pusauli.user.utils.loadImage
