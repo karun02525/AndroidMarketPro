@@ -60,7 +60,8 @@ class RegistationFragment : BaseFragmentVender() {
     private val uid = sp.userId
     private val mobile = sp.mobileNumber
     private val venderId = sp.venderId
-    private val shop_category = sp.category
+    private val category_id = sp.category_id
+    private val category_name = sp.category_name
 
     private var viewes: View? = null
 
@@ -87,7 +88,7 @@ class RegistationFragment : BaseFragmentVender() {
         if (avt != "") {
             imgBack.loadImage(Const.STORE_AVATAR_BASE_URL+sp.shopAvatar!!)
             v.vender_shop_reg.text = "#$venderId"
-            v.vender_shop_category.text = shop_category
+            v.vender_shop_category.text = category_name
             v.edit_shopMobile.setText(mobile)
             v.edit_shopName.setText(sp.shopName)
             v.edit_shopEmail.setText(sp.emailId)
@@ -101,7 +102,7 @@ class RegistationFragment : BaseFragmentVender() {
 
         } else {
             v.vender_shop_reg.text = "#$venderId"
-            v.vender_shop_category.text = shop_category
+            v.vender_shop_category.text = category_name
             v.edit_shopMobile.setText(mobile)
             v.edit_ownerName.setText(sp.userName)
             v.edit_ownerContact.setText(mobile)
@@ -268,7 +269,7 @@ class RegistationFragment : BaseFragmentVender() {
         val map =HashMap<String,Any>()
         map["vender_id"] = venderId!!
         map["uid"] = uid!!
-        map["category"] = shop_category!!
+        map["category_id"] = category_id!!
         map["shop_name"] = shopName
         map["shop_mobile"] = shopMobile
         map["shop_email"] = shopEmail

@@ -14,8 +14,10 @@ data class StoreListResult(
     var userId: String?,
     @SerializedName("vender_id")
     var venderId: String?,
-    @SerializedName("category")
-    var category: String?,
+    @SerializedName("category_id")
+    var category_id: String?,
+    @SerializedName("category_name")
+    var category_name: String?,
     @SerializedName("shop_address")
     var shopAddress: String?,
     @SerializedName("store_avatar")

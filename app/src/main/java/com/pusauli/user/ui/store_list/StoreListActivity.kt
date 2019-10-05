@@ -1,28 +1,25 @@
 package com.pusauli.user.ui.store_list
 
 import android.annotation.SuppressLint
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pusauli.user.R
 import com.pusauli.user.model.StoreListResult
+import com.pusauli.user.mvvm.DashboardViewModel
 import com.pusauli.user.network.Const.PROFILE_AVATAR_BASE_URL
 import com.pusauli.user.network.Const.STORE_AVATAR_BASE_URL
-import com.pusauli.user.network.NetworkUtil
-import com.pusauli.user.network.RestClient
+import com.pusauli.user.ui.common.ZoomImageActivity
 import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.store_list.details.DetailsActivity
-import com.pusauli.user.ui.common.ZoomImageActivity
-import com.pusauli.user.utils.SharedPref
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.loadImageProfile
 import com.pusauli.user.utils.log
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.pusauli.user.utils.showSnackBar
 import kotlinx.android.synthetic.main.activity_shop_list.*
 import kotlinx.android.synthetic.main.adapter_shop_list.view.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -30,76 +27,59 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class StoreListActivity : BaseActivity() {
 
-    var shop_category: String = ""
-    var shop_categoryName: String = ""
     private var listStore: ArrayList<StoreListResult> = arrayListOf()
-    private val sp by lazy { SharedPref.instance }
-    private val uid = sp.userId
+    private val instanceViewModel by lazy { DashboardViewModel() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_list)
 
-        try {
-            shop_category = intent.getStringExtra("shop_category")
-        } catch (e: Exception) {
-            this.shop_category =""
-        }
+        initObservers()
 
-       try {
-         shop_categoryName = intent.getStringExtra("shop_categoryName")
-            } catch (e: Exception) {
-                this.shop_category =""
+        val categoryId = intent.getStringExtra("category_id")?:""
+        val categoryName = intent.getStringExtra("categoryName")?:""
+
+        tv_title.text=categoryName
+        apiCall(categoryId)
+    }
+
+
+
+    private fun apiCall(category_id:String) {
+        showProgress()
+        instanceViewModel.getStoreListApi(category_id)
+    }
+
+    private fun initObservers() {
+        instanceViewModel.requestStoreListData.observe(this, Observer {
+            hideProgress()
+            successData(it)
+        })
+        instanceViewModel.errorMess.observe(this, Observer {
+            hideProgress()
+            showSnackBar(it!!)
+        })
+    }
+
+    private fun successData(it: List<StoreListResult>?) {
+        listStore=it as ArrayList<StoreListResult>
+        val mAdapter = StoreListAdapter(listStore, object : StoreListAdapter.ItemClickListener {
+            override fun onItemClicked(repos: StoreListResult) {
+                startActivity(
+                    Intent(this@StoreListActivity, DetailsActivity::class.java)
+                        .putExtra("vender_id", repos.venderId)
+                    // .putExtra("shop_categoryName", name)
+                )
             }
 
-
-        tv_title.text=shop_categoryName
-
-
-        setupViews(shop_category)
+        })
+        recyclerViewList.adapter = mAdapter
+        mAdapter.notifyDataSetChanged()
     }
+
 
     fun btnBack(v:View){
         onBackPressed()
-    }
-
-
-
-    @SuppressLint("CheckResult")
-    private fun setupViews(shop_category: String) {
-        recyclerViewList.layoutManager = LinearLayoutManager(this)
-        showProgress()
-        RestClient.webServices().getStoreList(shop_category)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                if (it.status!!) {
-                    listStore=it.result as ArrayList<StoreListResult>
-                    val mAdapter = StoreListAdapter(listStore, object : StoreListAdapter.ItemClickListener {
-                        override fun onItemClicked(repos: StoreListResult) {
-                            startActivity(
-                                Intent(this@StoreListActivity, DetailsActivity::class.java)
-                                   .putExtra("vender_id", repos.venderId)
-                                   // .putExtra("shop_categoryName", name)
-                            )
-                        }
-
-                    })
-                    recyclerViewList.adapter = mAdapter
-                    mAdapter.notifyDataSetChanged()
-                }
-
-                hideProgress()
-            },
-                { error ->
-                    hideProgress()
-                    logs("Error: " + NetworkUtil.isHttpStatusCode(error))
-                }
-            )
-
-
-
-
     }
 
 

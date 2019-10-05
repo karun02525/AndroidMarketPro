@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.pusauli.user.R
 import com.pusauli.user.model.ResultDetails
+import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.utils.*

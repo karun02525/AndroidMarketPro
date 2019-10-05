@@ -18,7 +18,8 @@ class SharedPref private constructor() {
 
         private val USER_ID = "user_id"
         private val VENDER_ID = "vender_id"
-        private val CATEGORY = "category"
+        private val CATEGORY_ID = "category_id"
+        private val CATEGORY_NAME = "category_name"
 
         private val USER_PASSWORD = "user_password"
         private val USER_NAME = "user_name"
@@ -87,12 +88,21 @@ class SharedPref private constructor() {
             editor.apply()
         }
 
-    var category: String?
-        get() = sharedPref.getString(CATEGORY, "")
-        set(category) {
-            editor.putString(CATEGORY, category)
+
+    var category_id: String?
+        get() = sharedPref.getString(CATEGORY_ID, "")
+        set(category_id) {
+            editor.putString(CATEGORY_ID, category_id)
             editor.apply()
         }
+
+    var category_name: String?
+        get() = sharedPref.getString(CATEGORY_NAME, "")
+        set(category_name) {
+            editor.putString(CATEGORY_NAME, category_name)
+            editor.apply()
+        }
+
 
     var branch: String?
         get() = sharedPref.getString(Branch, "")

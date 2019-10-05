@@ -20,12 +20,12 @@ class AuthVenderViewModel : ViewModel() {
 
 
     @SuppressLint("CheckResult")
-    fun submitVenderAPI(uid: String?, fullname: String, mobile: String?, selectedSpinnerValue: String) {
+    fun submitVenderAPI(uid: String?, fullname: String, mobile: String?, category_id: String) {
         val map = HashMap<String, String>()
         map["uid"] = uid.toString()
         map["fullname"] = fullname
         map["mobile"] = mobile!!
-        map["category"] = selectedSpinnerValue
+        map["category_id"] = category_id
 
         RestClient.webServices().venderRegister(map)
             .subscribeOn(Schedulers.io())

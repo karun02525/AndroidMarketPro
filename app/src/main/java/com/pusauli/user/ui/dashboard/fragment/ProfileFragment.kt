@@ -28,12 +28,12 @@ import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
-import com.pusauli.user.ui.authentication.AuthViewModel
+import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.ui.authentication.ChangePasswordActivity
 import com.pusauli.user.ui.authentication.LoginActivity
+import com.pusauli.user.ui.category.CategorySpinnerAdapter
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.ui.vender.VenderActivity
-import com.pusauli.user.ui.category.CategorySpinnerAdapter
 import com.pusauli.user.utils.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -61,7 +61,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var viewBind: View
     private lateinit var adpSpinner: SpinnerAdapter
-    private var selectedSpinnerValue = ""
+    private var category_id = ""
     private val uid = sp.userId
 
     @SuppressLint("DefaultLocale")
@@ -141,7 +141,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
         view.tv_mob.text = mobile
         view.btnSubmit.setOnClickListener {
             setProgress(true)
-            instanceVenderViewModel.submitVenderAPI(uid, name, mobile, selectedSpinnerValue)
+            instanceVenderViewModel.submitVenderAPI(uid, name, mobile, category_id)
             mBottomSheetDialog.dismiss()
         }
         initCategoryObservers()
@@ -174,7 +174,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onNothingSelected(parent: AdapterView<*>?) {}
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        selectedSpinnerValue = listSpinner[position].categoryId!!
+        category_id = listSpinner[position].categoryId!!
     }
 
 
@@ -271,7 +271,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private fun successfullyData(it: ResponseVenderVerify?) {
         val isVerify = it!!.result!!.isVerify
         val venderId = it.result!!.venderId
-        val category = it.result!!.category
+        val category_id = it.result!!.category_id
+        val category_name = it.result!!.category_name
 
 
         when (isVerify) {
@@ -281,7 +282,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 showDialog(venderId,isVerify)
             2 -> { //2 means verifyed
                 sp.venderId = venderId!!
-                sp.category = category!!
+                sp.category_id = category_id!!
+                sp.category_name = category_name!!
                 mActivity.startActivity(
                     Intent(mActivity, VenderActivity::class.java)
                         .putExtra("actionFragment", 2)

@@ -105,11 +105,11 @@ class HomeFragment : Fragment() {
 
 
 
-    private fun onSendStoreList(code: String, name: String) {
+    private fun onSendStoreList(category_id: String, categoryName: String) {
         mActivity.startActivity(
             Intent(mActivity, StoreListActivity::class.java)
-                .putExtra("shop_category", code)
-                .putExtra("shop_categoryName", name)
+                .putExtra("category_id", category_id)
+                .putExtra("categoryName", categoryName)
         )
     }
 

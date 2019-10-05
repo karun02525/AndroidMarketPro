@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.pusauli.user.R
+import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.utils.*
 import kotlinx.android.synthetic.main.activity_forgot_password.*

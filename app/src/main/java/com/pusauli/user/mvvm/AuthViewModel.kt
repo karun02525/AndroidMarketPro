@@ -1,4 +1,4 @@
-package com.pusauli.user.ui.authentication
+package com.pusauli.user.mvvm
 
 import android.annotation.SuppressLint
 import android.arch.lifecycle.MutableLiveData
