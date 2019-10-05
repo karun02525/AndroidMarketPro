@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -36,16 +37,16 @@ class StoreListActivity : BaseActivity() {
 
         initObservers()
 
-        val categoryId = intent.getStringExtra("category_id")?:""
-        val categoryName = intent.getStringExtra("categoryName")?:""
+        val categoryId = intent.getStringExtra("category_id") ?: ""
+        val categoryName = intent.getStringExtra("categoryName") ?: ""
 
-        tv_title.text=categoryName
+        recyclerViewList.layoutManager = LinearLayoutManager(this)
+        tv_title.text = categoryName
         apiCall(categoryId)
     }
 
 
-
-    private fun apiCall(category_id:String) {
+    private fun apiCall(category_id: String) {
         showProgress()
         instanceViewModel.getStoreListApi(category_id)
     }
@@ -62,7 +63,8 @@ class StoreListActivity : BaseActivity() {
     }
 
     private fun successData(it: List<StoreListResult>?) {
-        listStore=it as ArrayList<StoreListResult>
+        listStore = it as ArrayList<StoreListResult>
+
         val mAdapter = StoreListAdapter(listStore, object : StoreListAdapter.ItemClickListener {
             override fun onItemClicked(repos: StoreListResult) {
                 startActivity(
@@ -78,7 +80,7 @@ class StoreListActivity : BaseActivity() {
     }
 
 
-    fun btnBack(v:View){
+    fun btnBack(v: View) {
         onBackPressed()
     }
 
@@ -91,7 +93,8 @@ class StoreListActivity : BaseActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.adapter_shop_list, parent, false)
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.adapter_shop_list, parent, false)
             return ViewHolder(v)
         }
 
@@ -112,24 +115,24 @@ class StoreListActivity : BaseActivity() {
                     listener.onItemClicked(model)
                 }
 
-                if(model.user_avatar !=null && model.user_avatar !="" ) {
-                    val userPhoto = PROFILE_AVATAR_BASE_URL + model.user_avatar
-                    itemView.clg_logo.loadImageProfile(userPhoto)
 
-                    itemView.clg_logo.setOnClickListener {
-                        context.startActivity(
-                            Intent(context, ZoomImageActivity::class.java)
-                                .putExtra("galleryAvatar", userPhoto)
-                        )
-                    }
-                }
-                if(model.shopAvatar !=null){
-                    val shopPhoto = STORE_AVATAR_BASE_URL + model.shopAvatar
-                    itemView.iv_shopBack.loadImage(shopPhoto)
+                val userPhoto = PROFILE_AVATAR_BASE_URL + model.user_avatar
+                itemView.clg_logo.loadImageProfile(userPhoto)
+
+                itemView.clg_logo.setOnClickListener {
+                    context.startActivity(
+                        Intent(context, ZoomImageActivity::class.java)
+                            .putExtra("galleryAvatar", userPhoto)
+                    )
+
                 }
 
-                itemView.tv_shop_name.text=model.shopName?:""
-                itemView.tv_location_city.text=model.shopAddress?:""
+                val shopPhoto = STORE_AVATAR_BASE_URL + model.shopAvatar
+                itemView.iv_shopBack.loadImage(shopPhoto)
+
+
+                itemView.tv_shop_name.text = model.shopName ?: ""
+                itemView.tv_location_city.text = model.shopAddress ?: ""
 
             }
         }

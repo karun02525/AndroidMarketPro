@@ -60,7 +60,7 @@ interface ApiService {
 
     /*Show Store Category wise*/
     @GET("/store/get-store")
-    fun getStoreList(@Query("category") category: String?): Observable<ResponseStoreList>
+    fun getStoreList(@Query("category_id") category: String?): Observable<ResponseStoreList>
 
     @GET("/store/get-store-details")
     fun getStoreDetails(@Query("vender_id") vender_id: String): Observable<ResponseStoreDetails>
