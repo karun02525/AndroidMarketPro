@@ -46,7 +46,6 @@
 
         <activity
                 android:name=".ui.authentication.SplashActivity"
-                android:screenOrientation="portrait"
                 android:theme="@style/AppThemesNoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

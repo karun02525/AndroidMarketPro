@@ -77,8 +77,8 @@ fun clearAllDataAndLogOut() {
 }
 
 fun getDeviceToken(): String? {
-    Log.d("Login Activity", "Refreshed token: " + FirebaseInstanceId.getInstance().token)
-    return FirebaseInstanceId.getInstance().token
+    Log.d("Login Activity", "Device FCM token: " + FirebaseInstanceId.getInstance().token)
+    return FirebaseInstanceId.getInstance().token?:""
 }
 
 fun Context.hideSoftKeyboard() {

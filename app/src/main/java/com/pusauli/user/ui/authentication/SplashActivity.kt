@@ -18,7 +18,7 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        showProgress()
+        //showProgress()
         initOperation()
     }
 
@@ -29,7 +29,7 @@ class SplashActivity : BaseActivity() {
             }else {
                 startNewActivityFlag(LoginActivity::class.java)
             }
-            hideProgress()
+           // hideProgress()
             try {
                 log("FCM Token=>: ", getDeviceToken()!!)
             } catch (e: Exception) {

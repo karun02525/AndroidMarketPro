@@ -199,7 +199,7 @@ class RegistationFragment : BaseFragmentVender() {
     }
 
 
-    fun showAll() {
+    private fun showAll() {
         refreshImagePicker()
         imagePicker!!.choosePicture(true)
     }

@@ -63,6 +63,26 @@ class AuthViewModel : ViewModel() {
                 }
             )
     }
+    //Home API
+    @SuppressLint("CheckResult")
+    fun onGetHome(uid: String) {
+        val map = HashMap<String, String>()
+        map["mobile"] = uid
+        RestClient.webServices().login(map)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it.status!!) {
+                    requestData.value = it.result
+                }
+            },
+                {
+                    val mess = NetworkUtil.isHttpStatusCode(it)
+                    log("Login", "Error=>$mess")
+                    errorMess.value = mess
+                }
+            )
+    }
 
     /*Send OTP*/
     @SuppressLint("CheckResult")

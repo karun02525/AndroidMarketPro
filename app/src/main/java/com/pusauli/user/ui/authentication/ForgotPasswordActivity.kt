@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.text.method.PasswordTransformationMethod
 import com.pusauli.user.R
 import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.ui.dashboard.BaseActivity
@@ -28,6 +29,8 @@ class ForgotPasswordActivity : BaseActivity() {
     }
 
     private fun initView() {
+        edit_password.transformationMethod = PasswordTransformationMethod()
+        edit_cnf_password.transformationMethod = PasswordTransformationMethod()
 
         btnSubmit.setOnClickListener {
             val mob = edit_mobile.text.toString()

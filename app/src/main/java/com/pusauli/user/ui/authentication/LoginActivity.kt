@@ -2,6 +2,7 @@ package com.pusauli.user.ui.authentication
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import com.pusauli.user.R
 import com.pusauli.user.model.ResultDetails
@@ -10,6 +11,7 @@ import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.utils.*
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 class LoginActivity : BaseActivity() {
 
@@ -43,6 +45,7 @@ class LoginActivity : BaseActivity() {
 
 
     private fun initView() {
+        edit_password.transformationMethod = PasswordTransformationMethod()
 
         btnForgotPassword.setOnClickListener {
             startNewActivityNoFinish(ForgotPasswordActivity::class.java)

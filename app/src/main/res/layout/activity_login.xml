@@ -68,7 +68,6 @@
                             style="@style/edit_text"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:id="@+id/edit_password"
-                            android:inputType="textPassword"
                             android:maxLength="15"
                             android:singleLine="true"
                             android:hint="Enter Password"/>
