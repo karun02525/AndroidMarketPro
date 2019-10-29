@@ -1,8 +1,13 @@
 package com.pusauli.user.ui.authentication
 
 import android.arch.lifecycle.Observer
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.method.PasswordTransformationMethod
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import com.pusauli.user.R
 import com.pusauli.user.model.ResultDetails
@@ -45,8 +50,20 @@ class LoginActivity : BaseActivity() {
 
 
     private fun initView() {
-        edit_password.transformationMethod = PasswordTransformationMethod()
+        val s="Welcome to Digital Pusauli"
+        val spannable=SpannableString(s)
+        val t1=ForegroundColorSpan(Color.RED)
+        val t2=ForegroundColorSpan(Color.GREEN)
+        val t3=BackgroundColorSpan(Color.YELLOW)
 
+        spannable.setSpan(t1,0,7, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(t2,8,10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(t3,19,26, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        tv_title.text=spannable
+
+
+        edit_password.transformationMethod = PasswordTransformationMethod()
         btnForgotPassword.setOnClickListener {
             startNewActivityNoFinish(ForgotPasswordActivity::class.java)
         }
