@@ -2,8 +2,8 @@ package com.pusauli.user.ui.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
 import com.pusauli.user.R
 import com.pusauli.user.ui.dashboard.fragment.HomeFragment
 import com.pusauli.user.ui.dashboard.fragment.NotificationFragment

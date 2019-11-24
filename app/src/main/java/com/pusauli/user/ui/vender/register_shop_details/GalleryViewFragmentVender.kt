@@ -3,9 +3,9 @@ package com.pusauli.user.ui.vender.register_shop_details
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +50,8 @@ class GalleryViewFragmentVender : Fragment() {
     private fun uploadData(v: View?, galleryList: ArrayList<GalleryDetails>) {
         rev_gallery=v!!.rev_gallerys
         rev_gallery = v.rev_gallerys
-        rev_gallery.layoutManager = GridLayoutManager(context, 2)
+        rev_gallery.layoutManager =
+            GridLayoutManager(context, 2)
 
         val mAdapter = GalleryListAdapter(galleryList, object : GalleryListAdapter.ItemClickListener {
             override fun onItemClicked(repos: GalleryDetails) {

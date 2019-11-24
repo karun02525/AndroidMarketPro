@@ -46,7 +46,7 @@
                         android:textSize="@dimen/_15ssp"/>
 
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="@dimen/_80sdp"
                         style="@style/edit_text">
 
@@ -59,9 +59,9 @@
                             android:singleLine="true"
                             android:hint="Enter Mobile No"/>
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="@dimen/_10sdp"
                         app:passwordToggleEnabled="true"
                         style="@style/edit_text">
@@ -74,7 +74,7 @@
                             android:singleLine="true"
                             android:hint="Enter Password"/>
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                         android:id="@+id/btnForgotPassword"

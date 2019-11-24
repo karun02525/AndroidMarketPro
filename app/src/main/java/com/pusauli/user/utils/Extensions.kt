@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.CircularProgressDrawable
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.content.ContextCompat
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -132,7 +132,7 @@ fun Context.showSnackBar(message: String): Snackbar {
         Snackbar.LENGTH_LONG
     )
     sb.view.setBackgroundColor(ContextCompat.getColor(this, R.color.accent_700))
-    val textView = sb.view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+    val textView = sb.view.findViewById<TextView>(R.id.snackbar_text)
     textView.setTextColor(Color.parseColor("#FFFFFF"))
     sb.show()
     return sb
@@ -149,7 +149,8 @@ fun ImageView.loadImageProfile(url: String) {
 
 // Image Load glide
 fun ImageView.loadImage(url: String) {
-    val circularProgressDrawable = CircularProgressDrawable(context)
+    val circularProgressDrawable =
+        CircularProgressDrawable(context)
     circularProgressDrawable.strokeWidth = 5f
     circularProgressDrawable.centerRadius = 30f
     circularProgressDrawable.start()

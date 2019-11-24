@@ -1,10 +1,10 @@
 package com.pusauli.user.ui.vender.shop_fragment
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -112,8 +112,8 @@ class VenderFragment : Fragment() {
     }
 
     inner class MainPagerAdapterVender(fm: FragmentManager,
-                                 private var titles: Array<CharSequence>,
-                                 var numbOfTabs: Int
+                                       private var titles: Array<CharSequence>,
+                                       var numbOfTabs: Int
     ) : FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             return when (position) {

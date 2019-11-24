@@ -3,7 +3,7 @@ package com.pusauli.user.ui.vender
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.pusauli.user.R
 import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.vender.shop_fragment.GalleryFragment

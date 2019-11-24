@@ -1,11 +1,11 @@
 package com.pusauli.user.ui.store_list
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +40,8 @@ class StoreListActivity : BaseActivity() {
         val categoryId = intent.getStringExtra("category_id") ?: ""
         val categoryName = intent.getStringExtra("categoryName") ?: ""
 
-        recyclerViewList.layoutManager = LinearLayoutManager(this)
+        recyclerViewList.layoutManager =
+            LinearLayoutManager(this)
         tv_title.text = categoryName
         apiCall(categoryId)
     }

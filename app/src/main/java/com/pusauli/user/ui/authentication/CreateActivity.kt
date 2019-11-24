@@ -1,6 +1,6 @@
 package com.pusauli.user.ui.authentication
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
 import android.view.View
 import com.pusauli.user.R

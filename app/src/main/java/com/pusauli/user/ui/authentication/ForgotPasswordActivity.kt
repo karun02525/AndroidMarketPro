@@ -1,11 +1,11 @@
 package com.pusauli.user.ui.authentication
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.text.method.PasswordTransformationMethod
 import com.pusauli.user.R
 import com.pusauli.user.mvvm.AuthViewModel

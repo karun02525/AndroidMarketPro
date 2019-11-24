@@ -1,8 +1,8 @@
 package com.pusauli.user.mvvm
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.pusauli.user.model.ResultGalleryModel
 import com.pusauli.user.network.NetworkUtil.isHttpStatusCode
 import com.pusauli.user.network.RestClient

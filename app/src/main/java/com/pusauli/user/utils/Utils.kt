@@ -8,11 +8,11 @@ import android.content.Intent.*
 import android.graphics.*
 import android.net.ConnectivityManager
 import android.net.Uri
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
@@ -25,7 +25,6 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import com.pusauli.user.BuildConfig
 import com.pusauli.user.R
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -208,7 +207,7 @@ object Utils {
     fun showSnackBar(context: Context, message: String, color: Int): Snackbar {
         val sb = Snackbar.make((context as Activity).findViewById<View>(android.R.id.content), message, Snackbar.LENGTH_LONG)
         sb.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
-        val textView = sb.view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        val textView = sb.view.findViewById<TextView>(R.id.snackbar_text)
         textView.setTextColor(color)
         sb.show()
         return sb
@@ -218,7 +217,7 @@ object Utils {
     fun showSnackBarErr(context: Context, message: String, color: Int): Snackbar {
         val sb = Snackbar.make((context as Activity).findViewById<View>(android.R.id.content), message, Snackbar.LENGTH_LONG)
         sb.view.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
-        val textView = sb.view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        val textView = sb.view.findViewById<TextView>(R.id.snackbar_text)
         textView.setTextColor(color)
         sb.show()
         return sb
@@ -237,9 +236,9 @@ object Utils {
 
     //show Log
     fun log(tag: String, mess: String) {
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             Log.d(tag, mess)
-        }
+        }*/
     }
 
 

@@ -2,7 +2,7 @@ package com.pusauli.user.ui.dashboard
 
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.pusauli.user.utils.CustomProgressDialog
 import com.pusauli.user.utils.LoadingDialog
 import com.pusauli.user.utils.leftToRight

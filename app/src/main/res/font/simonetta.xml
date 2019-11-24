@@ -5,18 +5,18 @@
     <font
         app:fontStyle="normal"
         app:fontWeight="400"
-        app:font="@font/new_font"/>
+        app:font="@font/gluottine"/>
 
 
     <font
         app:fontStyle="normal"
         app:fontWeight="200"
-        app:font="@font/new_font"/>
+        app:font="@font/gluottine"/>
 
 
     <font
         app:fontStyle="normal"
         app:fontWeight="800"
-        app:font="@font/new_font"/>
+        app:font="@font/gluottine"/>
 
 </font-family>

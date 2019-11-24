@@ -2,8 +2,8 @@ package com.pusauli.user
 
 import android.app.Application
 import android.content.Context
-import android.support.multidex.MultiDex
-import android.support.v7.app.AppCompatDelegate
+import androidx.multidex.MultiDex
+import androidx.appcompat.app.AppCompatDelegate
 
 class App : Application() {
 

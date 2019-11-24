@@ -79,7 +79,7 @@
                 </RadioGroup>
 
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_5sdp">
 
@@ -91,9 +91,9 @@
                             android:inputType="text"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_5sdp">
 
@@ -105,9 +105,9 @@
                             android:inputType="text"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_10sdp">
 
@@ -120,9 +120,9 @@
                             android:maxLength="10"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_10sdp">
 
@@ -135,9 +135,9 @@
                             android:maxLength="30"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:passwordToggleEnabled="true">
@@ -151,9 +151,9 @@
                             android:maxLength="15"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         style="@style/edit_text"
                         android:layout_marginTop="@dimen/_10sdp">
 
@@ -166,7 +166,7 @@
                             android:maxLength="20"
                             android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                         android:id="@+id/btnSignUp"

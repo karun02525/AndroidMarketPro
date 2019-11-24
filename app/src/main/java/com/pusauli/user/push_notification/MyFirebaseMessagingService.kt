@@ -8,7 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.media.RingtoneManager
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import com.firebase.jobdispatcher.FirebaseJobDispatcher
 import com.firebase.jobdispatcher.GooglePlayDriver
 import com.google.firebase.messaging.FirebaseMessagingService

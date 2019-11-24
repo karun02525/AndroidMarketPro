@@ -1,12 +1,12 @@
 package com.pusauli.user.ui.dashboard.fragment
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     private val instanceViewModel by lazy { CategoryViewModel() }
     private var list: ArrayList<DataCategory> = arrayListOf()
     private lateinit var mActivity: MainActivity
-    private lateinit var rec:RecyclerView
+    private lateinit var rec: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +79,8 @@ class HomeFragment : Fragment() {
     private fun initView(v: View?) {
         setLayout(v)
         rec=v!!.recyclerView
-        rec.layoutManager = GridLayoutManager(mActivity, 3)
+        rec.layoutManager =
+            GridLayoutManager(mActivity, 3)
 
 
     }

@@ -2,13 +2,13 @@ package com.pusauli.user.ui.vender.shop_fragment
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -79,7 +79,8 @@ class GalleryFragment : Fragment() {
         v.iv_back.visibility = View.GONE
 
         rev_gallery = v.rev_gallerys
-        rev_gallery.layoutManager = GridLayoutManager(context, 2)
+        rev_gallery.layoutManager =
+            GridLayoutManager(context, 2)
 
         v.btnCamera.setOnClickListener {
             showAll()

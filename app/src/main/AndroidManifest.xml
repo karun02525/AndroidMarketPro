@@ -62,6 +62,12 @@
                 android:windowSoftInputMode="stateAlwaysHidden"
                 android:label="@string/app_name" />
 
+      <activity
+                android:name=".ui.intro.IntroSliderActivity"
+                android:screenOrientation="sensorPortrait"
+                android:windowSoftInputMode="stateAlwaysHidden"
+                android:label="@string/app_name" />
+
         <activity
                 android:name=".ui.authentication.CreateActivity"
                 android:label="@string/app_name"
@@ -111,7 +117,7 @@
                 android:theme="@style/AppThemesNoTitle" />
 
         <provider
-                android:name="android.support.v4.content.FileProvider"
+                android:name="androidx.core.content.FileProvider"
                 android:authorities="com.pusauli.user"
                 android:exported="false"
                 android:grantUriPermissions="true">
