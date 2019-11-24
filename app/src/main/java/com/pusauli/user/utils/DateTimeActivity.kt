@@ -1,10 +1,12 @@
 package com.example.vicky.multilanguageexample.splash
 
-import android.app.DatePickerDialog
+/*import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.vicky.multilanguageexample.R
+import com.pusauli.user.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
@@ -50,7 +52,7 @@ class DateTimeActivity : AppCompatActivity() {
         }
 
     }
-}
+}*/
 
 //Layout-----------------
 /*
