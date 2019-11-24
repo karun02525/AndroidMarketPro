@@ -18,12 +18,19 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+        iv_logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_in))
+
         //showProgress()
-        initOperation()
+        Handler().postDelayed({
+            iv_logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_out))
+            initOperation()
+        },2500)
     }
 
     private fun initOperation() {
         Handler().postDelayed({
+            iv_logo.visibility = View.GONE
             if(sp.isLoginStatus !=0){
                 startNewActivityFlag(MainActivity::class.java)
             }else {
@@ -34,7 +41,7 @@ class SplashActivity : BaseActivity() {
                 log("FCM Token=>: ", getDeviceToken()!!)
             } catch (e: Exception) {
             }
-        },2000)
+        },500)
 
 
     }
