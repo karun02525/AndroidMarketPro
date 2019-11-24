@@ -52,6 +52,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                    android:resource="@xml/shortcut"/>
         </activity>
 
         <activity
@@ -91,7 +93,8 @@
                 android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
                 android:name=".ui.dashboard.MainActivity"
-                android:theme="@style/AppThemesNoTitle" />
+                android:theme="@style/AppThemesNoTitle"/>
+
         <activity
                 android:name=".ui.vender.VenderActivity"
                 android:screenOrientation="portrait"

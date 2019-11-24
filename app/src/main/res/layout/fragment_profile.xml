@@ -240,7 +240,7 @@
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="For Vender"
+                            android:text="@string/for_vender"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12sdp"/>
 
