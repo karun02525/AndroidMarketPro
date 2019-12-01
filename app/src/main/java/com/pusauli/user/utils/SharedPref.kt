@@ -50,6 +50,11 @@ class SharedPref private constructor() {
         private val Partners = "Partners"
         private val EarningPercentage = "earning_percentage"
 
+        //Offline cache
+        private val DASHBOARD_CATEGORY = "DASHBOARD_CATEGORY"
+
+
+
     }
 
 
@@ -270,6 +275,15 @@ class SharedPref private constructor() {
         get() = sharedPref.getBoolean(IS_VIDEO_VIEW, false)
         set(isVideoView) {
             editor.putBoolean(IS_VIDEO_VIEW, isVideoView)
+            editor.apply()
+        }
+
+
+    //Cache offline
+    var dashboardCategory: String?
+        get() = sharedPref.getString(DASHBOARD_CATEGORY, "")
+        set(dashboardCategory) {
+            editor.putString(DASHBOARD_CATEGORY, dashboardCategory)
             editor.apply()
         }
 

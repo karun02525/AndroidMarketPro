@@ -1,16 +1,17 @@
 package com.pusauli.user.ui.dashboard.fragment
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pusauli.user.R
+import com.pusauli.user.model.CategoryModel
 import com.pusauli.user.model.DataCategory
 import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const.CATEGORY_AVATAR_BASE_URL
@@ -66,8 +67,8 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun successData(it: List<DataCategory>?) {
-        list= it!! as ArrayList<DataCategory>
+    private fun successData(it: CategoryModel) {
+        list= it.data
         val mLangAdapter = MenuAdapter(list, object : MenuAdapter.ItemClickListener {
             override fun onItemClicked(repos: DataCategory) {
                 onSendStoreList(repos.categoryId!!,repos.categoryName!!)

@@ -10,7 +10,7 @@ object NetworkUtil {
         var errorMess = ""
 
         if (e is HttpException) {
-            val responseBody = e.response().errorBody()
+            val responseBody = e.response()!!.errorBody()
             errorMess = (getErrorMessage(responseBody!!)!!)
             when {
                 e.code() == 403 -> errorMess = "Something went wrong 403"

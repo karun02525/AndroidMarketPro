@@ -2,14 +2,11 @@ package com.pusauli.user.ui.dashboard.fragment
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import androidx.lifecycle.Observer
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AlertDialog
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,17 +15,21 @@ import android.widget.AdapterView
 import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.SpinnerAdapter
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.myhexaville.smartimagepicker.ImagePicker
 import com.pusauli.user.R
+import com.pusauli.user.model.CategoryModel
 import com.pusauli.user.model.DataCategory
 import com.pusauli.user.model.ResponseVenderVerify
 import com.pusauli.user.model.ResultUpdateProfile
 import com.pusauli.user.mvvm.AuthVenderViewModel
+import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
-import com.pusauli.user.mvvm.AuthViewModel
 import com.pusauli.user.ui.authentication.ChangePasswordActivity
 import com.pusauli.user.ui.authentication.LoginActivity
 import com.pusauli.user.ui.category.CategorySpinnerAdapter
@@ -162,8 +163,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
         })
     }
 
-    private fun successData(it: List<DataCategory>?) {
-        listSpinner= it!! as ArrayList<DataCategory>
+    private fun successData(it: CategoryModel) {
+        listSpinner= it.data
        // listSpinner[0].categoryName="--Select Category--"
         adpSpinner = CategorySpinnerAdapter(mActivity, listSpinner)
         spinnerCategory.adapter = adpSpinner

@@ -9,7 +9,6 @@ import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.utils.SharedPref
 import com.pusauli.user.utils.getDeviceToken
 import android.view.animation.AnimationUtils
-import com.pusauli.user.ui.dialog.DialogActivity
 import com.pusauli.user.ui.intro.IntroSliderActivity
 import com.pusauli.user.utils.log
 import com.pusauli.user.utils.startNewActivityFlag
@@ -37,7 +36,7 @@ class SplashActivity : BaseActivity() {
         Handler().postDelayed({
             iv_logo.visibility = View.GONE
             if(sp.isLoginStatus !=0){
-                startNewActivityFlag(DialogActivity::class.java)
+                startNewActivityFlag(MainActivity::class.java)
                 //startNewActivityFlag(IntroSliderActivity::class.java)
             }else {
                 startNewActivityFlag(LoginActivity::class.java)
