@@ -45,7 +45,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/english_txt"
                         android:textColor="#203646"
-                        android:duplicateParentState="true"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:textSize="15sp" />
 
                 <TextView
@@ -55,7 +56,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/english_txt"
                         android:textColor="#203646"
-                        android:duplicateParentState="true"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:textSize="12sp" />
 
 
@@ -67,8 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:onClick="btnHindi"
                     android:padding="7dp">
 
                 <TextView
@@ -78,7 +79,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/hindi"
                         android:textColor="#203646"
-                        android:duplicateParentState="true"                        android:textSize="15sp" />
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:textSize="15sp" />
 
                 <TextView
                         android:id="@+id/tv_hindi_small"
@@ -86,7 +89,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hindi"
-                        android:duplicateParentState="true"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:textColor="#203646"
                         android:textSize="12sp" />
 
