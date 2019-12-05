@@ -3,14 +3,13 @@ package com.pusauli.user.language_change
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.pusauli.user.R
+import com.pusauli.user.ui.dashboard.BaseActivity
 import com.pusauli.user.ui.dashboard.MainActivity
 import kotlinx.android.synthetic.main.activity_language.*
 
-class SettingsActivity : AppCompatActivity() {
+class LanguageActivity : BaseActivity() {
 
-    lateinit var myPreference: MyPreference
     lateinit var context: Context
 
     var langCode="en"
@@ -19,7 +18,6 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_language)
         context = this
-        myPreference = MyPreference(this)
 
 
         val lang = myPreference.getLoginCount()
