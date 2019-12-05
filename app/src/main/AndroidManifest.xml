@@ -122,6 +122,7 @@
                 android:name=".ui.common.ZoomImageActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppThemesNoTitle" />
+        <activity android:name=".language_change.SettingsActivity" />
 
         <provider
                 android:name="androidx.core.content.FileProvider"

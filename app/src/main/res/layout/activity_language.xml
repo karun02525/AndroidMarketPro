@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+    <TextView
+            android:id="@+id/text_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:background="#fff"
+            android:padding="7dp"
+            android:text="@string/select_language_txt"
+            android:textColor="#343"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+                android:layout_below="@+id/text_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+                    android:id="@+id/ll_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="7dp"
+                    >
+
+                <TextView
+                        android:id="@+id/tv_english"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english_txt"
+                        android:textColor="#203646"
+                        android:duplicateParentState="true"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_english_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english_txt"
+                        android:textColor="#203646"
+                        android:duplicateParentState="true"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/ll_hindi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_hindi"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hindi"
+                        android:textColor="#203646"
+                        android:duplicateParentState="true"                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_hindi_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hindi"
+                        android:duplicateParentState="true"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_assamese"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/assamese"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_assamese_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Assamese"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_bengali"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bengali_txt"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_bengali_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bengali"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_Gujarati"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gujarati_txt"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_Gujarati_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gujarati"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_Kannada"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kannada_txt"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_Kannada_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kannada"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_marathi"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/marathi_txt"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_marathi_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marathi"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                <TextView
+                        android:id="@+id/tv_oria"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oriya_txt"
+                        android:textColor="#203646"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/tv_oria_small"
+                        style="@style/RadioButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Oria"
+                        android:textColor="#203646"
+                        android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_you_Can_Change_anytime_txt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#233ECF"
+            android:text="@string/continue_txt"
+            android:textColor="#fff"
+            android:textSize="15sp" />
+
+
+    <TextView
+            android:id="@+id/tv_you_Can_Change_anytime_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/you_can_change_it_from_app_settings_anytime"
+            android:textAlignment="center"
+            android:textColor="#233ECF"
+            android:textSize="12sp" />
+
+</RelativeLayout>

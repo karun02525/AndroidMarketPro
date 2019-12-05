@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.myhexaville.smartimagepicker.ImagePicker
 import com.pusauli.user.R
+import com.pusauli.user.language_change.SettingsActivity
 import com.pusauli.user.model.CategoryModel
 import com.pusauli.user.model.DataCategory
 import com.pusauli.user.model.ResponseVenderVerify
@@ -113,6 +114,9 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
             this.ll_image_main.setOnClickListener {
                 showAll()
+            }
+            this.ll_chnage_lang.setOnClickListener {
+                startActivity(Intent(mActivity, SettingsActivity::class.java))
             }
         }
 

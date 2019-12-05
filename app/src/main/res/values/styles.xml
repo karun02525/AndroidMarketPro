@@ -119,6 +119,10 @@
         <item name="android:background">#1fb3c9</item>
     </style>
 
+    <style name="RadioButtonStyle" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/custom_btn_radio</item>
+    </style>
+
 
 
 </resources>
