@@ -45,7 +45,7 @@ class CategoryViewModel : ViewModel() {
 
     private fun getCacheData() {
         val getCache = spCache.dashboardCategory
-        if (getCache != null) {
+        if (getCache != null && getCache != "" ) {
             val obj = Gson().fromJson(getCache, CategoryModel::class.java)
             requestCategoryData.value = obj
         }

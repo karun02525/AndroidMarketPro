@@ -14,7 +14,6 @@ object NetworkUtil {
             errorMess = (getErrorMessage(responseBody!!)!!)
             when {
                 e.code() == 403 -> errorMess = "Something went wrong 403"
-                e.code() == 404 -> errorMess = "Something went wrong 404"
                 e.code() == 500 -> errorMess ="Something went wrong 500"
                 e.code() == 502 -> errorMess = "Something went wrong 502"
             }
