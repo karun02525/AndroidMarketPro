@@ -60,7 +60,7 @@ class CreateActivity : BaseActivity() {
         log("Login API", "Response => $data")
         sp.isLoginStatus = 1
         sp.userId = data!!.userId
-        sp.userName = data.firstName + " " + data.lastName
+        sp.userName = data.firstName
         sp.mobileNumber = data.mobile
         sp.gender = data.gender
         sp.city = data.city

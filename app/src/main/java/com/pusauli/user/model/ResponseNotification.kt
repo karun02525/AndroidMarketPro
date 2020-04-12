@@ -13,14 +13,20 @@ data class ResponseNotification(
 )
 
 data class NotificationData(
+    @SerializedName("category")
+    var category: String? = null,
     @SerializedName("create_at")
-    val createAt: String,
+    var createAt: String? = null,
     @SerializedName("message")
-    val message: String,
+    var message: String? = null,
     @SerializedName("notification_id")
-    val notificationId: String,
+    var notificationId: String? = null,
     @SerializedName("title")
-    val title: String,
+    var title: String? = null,
+    @SerializedName("type")
+    var type: String? = null,
     @SerializedName("uid")
-    val uid: String
+    var uid: String? = null,
+    @SerializedName("vender_id")
+    var venderId: String? = null
 )

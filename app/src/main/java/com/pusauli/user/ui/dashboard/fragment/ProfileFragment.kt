@@ -64,6 +64,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var viewBind: View
     private lateinit var adpSpinner: SpinnerAdapter
     private var category_id = ""
+    private var category_name = ""
     private val uid = sp.userId
 
     @SuppressLint("DefaultLocale")
@@ -109,7 +110,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
             this.ll_vender.setOnClickListener {
                 setProgress(true)
-                venderVerifyAPI(uid!!)
+                venderVerifyAPI()
             }
 
             this.ll_image_main.setOnClickListener {
@@ -146,7 +147,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
         view.tv_mob.text = mobile
         view.btnSubmit.setOnClickListener {
             setProgress(true)
-            instanceVenderViewModel.submitVenderAPI(uid, name, mobile, category_id)
+            instanceVenderViewModel.submitVenderAPI(category_id,category_name)
             mBottomSheetDialog.dismiss()
         }
         initCategoryObservers()
@@ -180,6 +181,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         category_id = listSpinner[position].categoryId!!
+        category_name = listSpinner[position].categoryName!!
     }
 
 
@@ -243,8 +245,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
     @SuppressLint("CheckResult")
-    fun venderVerifyAPI(uid: String?) {
-        RestClient.webServices().venderVerify(uid)
+    fun venderVerifyAPI() {
+        RestClient.webServices().venderVerify()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

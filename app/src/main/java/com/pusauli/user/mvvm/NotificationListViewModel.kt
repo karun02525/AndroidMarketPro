@@ -16,8 +16,8 @@ class NotificationListViewModel : ViewModel() {
     val errorMess = MutableLiveData<String>()
 
     @SuppressLint("CheckResult")
-    fun getNotificationApiCall(uid: String) {
-        RestClient.webServices().getNotifications(uid)
+    fun getNotificationApiCall() {
+        RestClient.webServices().getNotifications()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

@@ -55,7 +55,7 @@ class PersonalNotificationFragment : Fragment() {
         rec = v!!.recyclerView
         rec!!.layoutManager =
             LinearLayoutManager(mActivity)
-        instanceViewModel.getNotificationApiCall(sp.userId!!)
+        instanceViewModel.getNotificationApiCall()
     }
 
     private fun initObservers() {
@@ -115,20 +115,31 @@ class PersonalNotificationFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             fun bindItems(model: NotificationData) {
-                if(model.title.equalsIgnoreCase("Pending")){
+
+
+
+                if(model.title!!.equalsIgnoreCase("Pending")){
                     itemView.tv_headline.text = model.title
                     itemView.tv_headline.setTextColor(Color.BLUE)
                 }
-                if(model.title.equalsIgnoreCase("Approved")){
+                if(model.title!!.equalsIgnoreCase("Approved")){
                     itemView.tv_headline.text = model.title
                     itemView.tv_headline.setTextColor(Color.GREEN)
                 }
-                if(model.title.equalsIgnoreCase("Rejected")){
+                if(model.title!!.equalsIgnoreCase("Rejected")){
                     itemView.tv_headline.text = model.title
                     itemView.tv_headline.setTextColor(Color.RED)
                 }
-                itemView.tv_description.text = model.message
-                itemView.tv_time.text = model.createAt
+
+
+                itemView.run {
+                    tv_venderID.text = "Vender ID : "+model.venderId
+                    tv_Category.text = "Category  : "+model.category
+                    tv_description.text ="Status      : "+ model.message
+                    tv_time.text = model.createAt
+                }
+
+
 
             }
         }

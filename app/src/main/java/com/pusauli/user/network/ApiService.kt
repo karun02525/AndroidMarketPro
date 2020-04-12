@@ -10,8 +10,28 @@ import retrofit2.http.*
 interface ApiService {
 
 
-    @POST("/api/authenticate/login")
+    @POST("/authenticate/login")
     fun login(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
+
+    @POST("/authenticate/register")
+    fun signUp(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
+
+    @GET("/category/get-category")
+    fun getCategory(): Observable<CategoryModel>
+
+    @GET("/authenticate/vender_verify")
+    fun venderVerify(): Observable<ResponseVenderVerify>
+
+    @GET("/authenticate/vender_register/{category_id}/{category_name}")
+    fun venderRegister(@Path("category_id") category_id:String,
+                       @Path("category_name") category_name:String) : Observable<ResponseVenderVerify>
+
+    @GET("/authenticate/notifications")
+    fun getNotifications(): Observable<ResponseNotification>
+
+
+
+
 
     @POST("/api/authenticate/send-otp")
     fun onSendOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
@@ -19,8 +39,6 @@ interface ApiService {
     @POST("/api/authenticate/verify-otp")
     fun onSendVerityOtp(@Body map: HashMap<String, String>): Observable<OTPModel>
 
-    @POST("/api/authenticate/create-user")
-    fun signUp(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 
     @POST("/api/authenticate/register-device")
     fun registerDevices(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
@@ -31,8 +49,6 @@ interface ApiService {
     @POST("/api/authenticate/change-password")
     fun changePassword(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 
-    @GET("/api/get-category")
-    fun getCategory(): Observable<CategoryModel>
 
     @Multipart
     @POST("/api/authenticate/edit-profile")
@@ -42,12 +58,6 @@ interface ApiService {
     ): Observable<ResponseUpdateProfile>
 
 
-    @GET("/store/check-vender")
-    fun venderVerify(@Query("uid") uid: String?): Observable<ResponseVenderVerify>
-
-
-    @POST("/store/vender-register")
-    fun venderRegister(@Body map: HashMap<String, String>): Observable<ResponseVenderVerify>
 
 
     @Multipart
@@ -84,9 +94,6 @@ interface ApiService {
 
     @GET("/store/get-vender")
     fun getVenderList(@Query("user_id") user_id: Int?): Observable<ResponseVenderModel>
-
-    @GET("/store/nofifications")
-    fun getNotifications(@Query("uid") uid: String?): Observable<ResponseNotification>
 
 
     @GET("/nearby/get-nearby")

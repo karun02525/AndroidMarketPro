@@ -20,14 +20,8 @@ class AuthVenderViewModel : ViewModel() {
 
 
     @SuppressLint("CheckResult")
-    fun submitVenderAPI(uid: String?, fullname: String, mobile: String?, category_id: String) {
-        val map = HashMap<String, String>()
-        map["uid"] = uid.toString()
-        map["fullname"] = fullname
-        map["mobile"] = mobile!!
-        map["category_id"] = category_id
-
-        RestClient.webServices().venderRegister(map)
+    fun submitVenderAPI(category_id: String,category_name: String) {
+        RestClient.webServices().venderRegister(category_id,category_name)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

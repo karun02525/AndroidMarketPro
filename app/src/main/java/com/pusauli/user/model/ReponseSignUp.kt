@@ -12,19 +12,17 @@ data class ReponseSignUp(
 )
 
 data class ResultDetails(
-    @SerializedName("first_name")
+    @SerializedName("name")
     var firstName: String?,
     @SerializedName("gender")
     var gender: String?,
-    @SerializedName("last_name")
-    var lastName: String?,
     @SerializedName("mobile")
     var mobile: String?,
     @SerializedName("email")
     var email: String?,
     @SerializedName("uid")
     var userId: String?,
-    @SerializedName("city")
+    @SerializedName("address")
     var city: String?,
     @SerializedName("token")
     var authentication: String?,
