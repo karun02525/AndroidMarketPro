@@ -12,15 +12,18 @@ interface ApiService {
 
 
     @POST("/authenticate/login")
-    fun login(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
+    suspend fun login(@Body map: HashMap<String, String>): ReponseSignUp
 
     @POST("/authenticate/register")
     fun signUp(@Body map: HashMap<String, String>): Single<ReponseSignUp>
 
     @POST("/authenticate/register-device")
-    fun registerDevice(@Header("Authorization") token:String,@Body map: HashMap<String, String>): Observable<ResponseRegisterDevice>
+    suspend fun registerDevice(@Header("Authorization") token:String,@Body map: HashMap<String, String>): ResponseRegisterDevice
 
     fun loginDetails(it:ReponseSignUp): Single<ReponseSignUp>
+
+    @GET("/category/get-category")
+    suspend fun getCategorys(@Header("Authorization") token:String): CategoryModel
 
     @GET("/category/get-category")
     fun getCategory(): Observable<CategoryModel>

@@ -3,8 +3,10 @@ package com.pusauli.user.mvvm
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.pusauli.user.BuildConfig
 import com.pusauli.user.model.*
+import com.pusauli.user.network.ApiStatus.isCheckAPIStatus
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
 import com.pusauli.user.utils.deviceInfo
@@ -13,9 +15,11 @@ import com.pusauli.user.utils.log
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Response
 import java.io.File
 
 
@@ -25,6 +29,7 @@ class AuthViewModel : ViewModel() {
     var requestDataUpdateProfile = MutableLiveData<ResultUpdateProfile>()
     var requestDataOTP = MutableLiveData<ResultOTP>()
     var requestDataOTPVerify = MutableLiveData<OTPModel>()
+    private lateinit var job1: Job
 
 
 
@@ -38,10 +43,54 @@ class AuthViewModel : ViewModel() {
     val deviceName = com.pusauli.user.utils.deviceName
 
 
+    @SuppressLint("CheckResult")
+    fun onLoginSubmit(mob: String, pass: String) {
+        val apiInterface = RestClient.webServices()
+        val map = HashMap<String, String>()
+        map["mobile"] = mob
+        map["password"] = pass
+
+        val handler = CoroutineExceptionHandler { _, exception ->
+            val mess = NetworkUtil.isHttpStatusCode(exception)
+            errorMess.postValue(mess)
+            log("LoginResponseSuccess", "Error 2=>$mess")
+            log("LoginResponseSuccess", "Error 2=> "+ Thread.currentThread().name)
+        }
+
+        job1 = viewModelScope.launch(handler + Dispatchers.IO) {
+                val resLogin= apiInterface.login(map)
+                val(a,b) = coroutineScope {
+                    log("LoginResponseSuccess", "Error 3=> "+ Thread.currentThread().name)
+                    val resDevice= async {
+                        apiInterface.registerDevice("Bearer "+resLogin.result?.token!!, deviceInfo())}
+                    val resCategory= async {apiInterface.getCategorys("Bearer "+resLogin.result?.token!!)}
+                    resDevice.await() to resCategory.await()
+                }
+                 requestData.postValue(resLogin.result)
+
+                log("LoginResponseSuccess", "Error 4=> "+ Thread.currentThread().name)
+                log("LoginResponseSuccess 1-> ",""+ resLogin)
+                log("LoginResponseSuccess 2-> ",""+ a)
+                log("LoginResponseSuccess 3-> ",""+ b)
+        }
+        log("LoginResponseSuccess job1-> ",""+ job1)
+    }
 
 
 
-    /*Login*/
+    override fun onCleared() {
+        job1.cancel()
+        log("LoginResponseSuccess -> ","onCleared 1")
+        super.onCleared()
+        log("LoginResponseSuccess -> ","onCleared 2")
+
+    }
+
+/*
+
+    */
+/*Login*//*
+
     @SuppressLint("CheckResult")
     fun onLoginSubmit(mob: String, pass: String) {
         val apiInterface = RestClient.webServices()
@@ -53,9 +102,11 @@ class AuthViewModel : ViewModel() {
                  apiInterface.registerDevice("Bearer "+it.result?.token!!, deviceInfo())
                 .map { obj->Pair(it,obj) }
             }
-           /* .flatMap{
+           */
+/* .flatMap{
                 apiInterface.getCategory("Bearer "+it.first.result?.token!!).map { obj->Triple(it.first,it.second,obj) }
-            }*/
+            }*//*
+
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -73,7 +124,9 @@ class AuthViewModel : ViewModel() {
                 }
             )
     }
+*/
 
+    /*
     //Home API
     @SuppressLint("CheckResult")
     fun onGetHome(uid: String) {
@@ -94,7 +147,7 @@ class AuthViewModel : ViewModel() {
                 }
             )
     }
-
+*/
     /*Send OTP*/
     @SuppressLint("CheckResult")
     fun onSendOtpAPI(mobileNumber: String) {
