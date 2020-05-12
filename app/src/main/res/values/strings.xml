@@ -137,10 +137,10 @@
     </string-array>
 
 
-    <string name="login_validation_fname">Please enter First Name</string>
-    <string name="login_validation_lname">Please enter Last Name</string>
+    <string name="login_validation_name">Please enter Name</string>
+    <string name="login_validation_email">Please enter email address</string>
     <string name="login_validation_mobile_numbers">Please enter mobile number</string>
-    <string name="login_validation_email">Please enter email id</string>
+    <string name="login_validation_email_valid">Please enter valid email address</string>
     <string name="login_validation_valid_mobile_numbers">Please enter valid mobile number</string>
     <string name="login_validation_password">Please enter your password</string>
     <string name="enter_old_password">Please enter your old password</string>
@@ -178,7 +178,7 @@
     <string name="alert_valid_name">Your name should not be less than 3 charecters</string>
     <string name="alert_valid_otp">Please Enter Valid OTP</string>
     <string name="msg_otp_success">OTP Send Successfully</string>
-    <string name="msg_create_account">Create Account</string>
+    <string name="msg_create_account">Register Here</string>
     <string name="msg_mobile_number">Mobile Number</string>
     <string name="msg_verify_otp">verify otp</string>
 

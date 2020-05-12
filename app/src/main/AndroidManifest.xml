@@ -77,7 +77,7 @@
                 android:label="@string/app_name" />
 
         <activity
-                android:name=".ui.authentication.CreateActivity"
+                android:name=".ui.authentication.RegisterActivity"
                 android:label="@string/app_name"
                 android:screenOrientation="sensorPortrait"
                 android:windowSoftInputMode="stateAlwaysHidden" />

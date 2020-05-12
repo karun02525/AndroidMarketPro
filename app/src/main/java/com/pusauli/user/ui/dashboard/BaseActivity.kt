@@ -42,10 +42,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     fun showProgress() {
-        pd.show()
+        pd.let { pd.show()}
     }
 
     fun hideProgress() {
-        pd.dismiss()
+        pd.let { pd.dismiss()}
     }
 }

@@ -2,6 +2,7 @@ package com.pusauli.user.network
 
 import com.pusauli.user.model.*
 import io.reactivex.Observable
+import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -14,7 +15,12 @@ interface ApiService {
     fun login(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
 
     @POST("/authenticate/register")
-    fun signUp(@Body map: HashMap<String, String>): Observable<ReponseSignUp>
+    fun signUp(@Body map: HashMap<String, String>): Single<ReponseSignUp>
+
+    @POST("/authenticate/register-device")
+    fun registerDevice(@Header("Authorization") token:String,@Body map: HashMap<String, String>): Observable<ResponseRegisterDevice>
+
+    fun loginDetails(it:ReponseSignUp): Single<ReponseSignUp>
 
     @GET("/category/get-category")
     fun getCategory(): Observable<CategoryModel>

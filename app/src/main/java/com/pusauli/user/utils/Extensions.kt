@@ -1,10 +1,14 @@
 package com.pusauli.user.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
+import android.os.Build.*
+import android.provider.Settings
+import android.text.TextUtils
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.content.ContextCompat
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -18,6 +22,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.iid.FirebaseInstanceId
 import com.pusauli.user.App
+import com.pusauli.user.BuildConfig
 import com.pusauli.user.R
 import com.pusauli.user.ui.authentication.LoginActivity
 import java.util.regex.Matcher
@@ -58,6 +63,22 @@ fun Context.log(tag: String, message: String) {
     Log.d("$tag=> ", message)
 }
 
+fun String.isEmailValid(): Boolean {
+    return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+}
+
+@SuppressLint("HardwareIds")
+fun deviceInfo():HashMap<String,String> {
+    val map= HashMap<String,String>()
+    map ["device_id"]= Settings.Secure.getString(App.appContext?.contentResolver, Settings.Secure.ANDROID_ID)?:"N.A"
+    map["device_name"]= "$DEVICE, $MANUFACTURER, $MODEL, $BRAND"
+    map["firebase_token"]=FirebaseInstanceId.getInstance().token?:""
+    map["version_android"]= BuildConfig.VERSION_NAME
+    return map
+}
+
+
+
 //Clear Session
 fun clearAllDataAndLogOut() {
 
@@ -92,7 +113,7 @@ fun Context.hideSoftKeyboard() {
 
 val deviceName: String
     get() {
-        val manufacturer = Build.MANUFACTURER
+        val manufacturer = MANUFACTURER
         val model = Build.MODEL
         return if (model.toLowerCase().startsWith(manufacturer.toLowerCase())) {
             capitalize(model)

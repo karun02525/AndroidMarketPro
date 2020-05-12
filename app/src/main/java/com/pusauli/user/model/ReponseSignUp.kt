@@ -25,7 +25,14 @@ data class ResultDetails(
     @SerializedName("address")
     var city: String?,
     @SerializedName("token")
-    var authentication: String?,
+    var token: String?,
     @SerializedName("user_avatar")
     var user_avatar: String?
+)
+
+data class ResponseRegisterDevice(
+    @SerializedName("message")
+    var message: String?,
+    @SerializedName("status")
+    var status: Boolean?
 )

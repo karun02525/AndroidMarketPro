@@ -117,7 +117,7 @@ class LoginActivity : BaseActivity() {
         sp.gender = data.gender
         sp.city = data.city
         sp.profileAvatar = data.user_avatar
-        sp.authToken = data.authentication
+        sp.authToken = data.token
 
         if (sp.isLoginStatus != 0) {
             startNewActivityFlag(MainActivity::class.java)
@@ -125,6 +125,6 @@ class LoginActivity : BaseActivity() {
     }
 
     fun btnSignUp(v: View) {
-        startNewActivityNoFinish(OtpSendActivity::class.java)
+        startNewActivityNoFinish(RegisterActivity::class.java)
     }
 }

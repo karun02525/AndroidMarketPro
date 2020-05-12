@@ -49,7 +49,7 @@ class ForgotPasswordActivity : BaseActivity() {
                 }
                 lname.isBlank() -> {
                     hideSoftKeyboard()
-                    showSnackBar(getString(R.string.login_validation_lname))
+                    showSnackBar(getString(R.string.alert_name))
                 }
                 pass.isBlank() -> {
                     hideSoftKeyboard()

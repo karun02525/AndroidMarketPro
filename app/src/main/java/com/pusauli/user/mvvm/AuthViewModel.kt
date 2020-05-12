@@ -4,14 +4,13 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pusauli.user.BuildConfig
-import com.pusauli.user.model.OTPModel
-import com.pusauli.user.model.ResultDetails
-import com.pusauli.user.model.ResultOTP
-import com.pusauli.user.model.ResultUpdateProfile
+import com.pusauli.user.model.*
 import com.pusauli.user.network.NetworkUtil
 import com.pusauli.user.network.RestClient
+import com.pusauli.user.utils.deviceInfo
 import com.pusauli.user.utils.getDeviceToken
 import com.pusauli.user.utils.log
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType
@@ -41,19 +40,30 @@ class AuthViewModel : ViewModel() {
 
 
 
+
     /*Login*/
     @SuppressLint("CheckResult")
     fun onLoginSubmit(mob: String, pass: String) {
-        log("Login", "Data=>$mob ,$pass")
+        val apiInterface = RestClient.webServices()
         val map = HashMap<String, String>()
         map["mobile"] = mob
         map["password"] = pass
-        RestClient.webServices().login(map)
+        apiInterface.login(map)
+            .flatMap{
+                 apiInterface.registerDevice("Bearer "+it.result?.token!!, deviceInfo())
+                .map { obj->Pair(it,obj) }
+            }
+           /* .flatMap{
+                apiInterface.getCategory("Bearer "+it.first.result?.token!!).map { obj->Triple(it.first,it.second,obj) }
+            }*/
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                if (it.status!!) {
-                    requestData.value = it.result
+               log("Login Success 1-> ",it.first.toString())
+               log("Login Success 2-> ",it.second.toString())
+              // log("Login Success 3-> ",it.third.toString())
+               if (it.first.status!!) {
+                   requestData.value = it.first.result
                 }
             },
                 {
@@ -63,6 +73,7 @@ class AuthViewModel : ViewModel() {
                 }
             )
     }
+
     //Home API
     @SuppressLint("CheckResult")
     fun onGetHome(uid: String) {
@@ -130,11 +141,11 @@ class AuthViewModel : ViewModel() {
 
     /*Create Account*/
     @SuppressLint("CheckResult")
-    fun onSignUpSubmit(mobile: String,fname: String, lname: String, pass: String, gender: String) {
+    fun onSignUpSubmit(mobile: String,name: String, email: String, pass: String, gender: String) {
         val map = HashMap<String, String>()
         map["mobile"] = mobile
-        map["first_name"] = fname
-        map["last_name"] = lname
+        map["name"] = name
+        map["email"] = email
         map["password"] = pass
         map["gender"] = gender
         RestClient.webServices().signUp(map)

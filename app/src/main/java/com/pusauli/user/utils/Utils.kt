@@ -236,6 +236,7 @@ object Utils {
 
     //show Log
     fun log(tag: String, mess: String) {
+        Log.d(tag, mess)
         /*if (BuildConfig.DEBUG) {
             Log.d(tag, mess)
         }*/

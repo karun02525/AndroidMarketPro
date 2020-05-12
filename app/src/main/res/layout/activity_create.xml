@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
                             android:id="@+id/tv_nine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -93,9 +93,7 @@
                             android:id="@+id/til_login"
                             android:layout_toEndOf="@+id/tv_nine"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:hintEnabled="false"
-                            app:passwordToggleEnabled="true">
+                            android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/edt_mobile_number"
@@ -107,7 +105,6 @@
                                 android:inputType="number"
                                 android:maxLength="10"
                                 android:maxLines="1"
-                                android:enabled="false"
                                 android:paddingBottom="@dimen/_14sdp"
                                 android:textSize="13sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -119,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:text="@string/first_name"
+                        android:text="Full Name"
                         android:textColor="@color/dark_blue_text"
                         android:textSize="13sp"
                         tools:ignore="RtlSymmetry" />
@@ -131,11 +128,11 @@
                         app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edt_first_name"
+                            android:id="@+id/edt_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/color_divider"
-                            android:hint="@string/enter_first_name"
+                            android:hint="Enter name"
                             android:imeOptions="actionNext"
                             android:maxLines="1"
                             android:maxLength="20"
@@ -151,7 +148,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Last Name"
+                        android:text="Email"
                         android:textColor="@color/dark_blue_text"
                         android:textSize="13sp"
                         tools:ignore="RtlSymmetry" />
@@ -163,14 +160,15 @@
                         app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edt_last_name"
+                            android:id="@+id/edt_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/color_divider"
-                            android:hint="@string/enter_last_name"
+                            android:hint="Enter email address"
                             android:imeOptions="actionNext"
                             android:maxLines="1"
-                            android:maxLength="20"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="35"
                             android:paddingEnd="@dimen/_14sdp"
                             android:paddingBottom="@dimen/_14sdp"
                             android:textSize="13sp"

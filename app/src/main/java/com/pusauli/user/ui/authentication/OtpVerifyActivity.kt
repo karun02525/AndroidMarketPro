@@ -52,7 +52,7 @@ class OtpVerifyActivity : BaseActivity() {
 
     private fun successData(it: OTPModel?) {
            if(it!!.status!!){
-               val intent = Intent(this, CreateActivity::class.java)
+               val intent = Intent(this, RegisterActivity::class.java)
                intent.putExtra("mobile", mobile)
                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                startActivity(intent)

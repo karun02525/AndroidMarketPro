@@ -11,17 +11,15 @@ import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.utils.*
 import kotlinx.android.synthetic.main.activity_create.*
 
-class CreateActivity : BaseActivity() {
+class RegisterActivity : BaseActivity() {
 
     private val sp by lazy { SharedPref.instance }
     private val instanceViewModel by lazy { AuthViewModel() }
     var gender = "Male"
     var mobile = ""
-    var fname = ""
-    var lname = ""
+    var name = ""
+    var email = ""
     var pass = ""
-    var cnfpass = ""
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +38,7 @@ class CreateActivity : BaseActivity() {
     fun btnSubmit(v: View) {
         if (validation()) {
             showProgress()
-            instanceViewModel.onSignUpSubmit(mobile, fname, lname, pass, gender)
+            instanceViewModel.onSignUpSubmit(mobile, name, email, pass, gender)
         }
     }
 
@@ -65,7 +63,7 @@ class CreateActivity : BaseActivity() {
         sp.gender = data.gender
         sp.city = data.city
         sp.profileAvatar = data.user_avatar
-        sp.authToken = data.authentication
+        sp.authToken = data.token
 
         if (sp.isLoginStatus != 0) {
             startNewActivityFlag(MainActivity::class.java)
@@ -78,21 +76,32 @@ class CreateActivity : BaseActivity() {
 
 
     private fun validation(): Boolean {
-
-        fname = edt_first_name.text.toString()
-        lname = edt_last_name.text.toString()
+        mobile = edt_mobile_number.text.toString()
+        name = edt_name.text.toString()
+        email = edt_email.text.toString()
         pass = edt_password.text.toString()
-        cnfpass = edt_cnf_pass.text.toString()
+        val cnfPass = edt_cnf_pass.text.toString()
 
         return when {
-            fname.isBlank() -> {
+            mobile.isBlank() -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_fname))
+                showSnackBar(getString(R.string.login_validation_mobile_numbers))
                 false
-            }
-            lname.isBlank() -> {
+            }mobile.length != 10 -> {
                 hideSoftKeyboard()
-                showSnackBar(getString(R.string.login_validation_lname))
+                showSnackBar(getString(R.string.login_validation_valid_mobile_numbers))
+                false
+            }name.isBlank() -> {
+                hideSoftKeyboard()
+                showSnackBar(getString(R.string.login_validation_name))
+                false
+            }email.isBlank() -> {
+                hideSoftKeyboard()
+                showSnackBar(getString(R.string.login_validation_email))
+                false
+            }!email.isEmailValid() -> {
+                hideSoftKeyboard()
+                showSnackBar(getString(R.string.login_validation_email))
                 false
             }
             pass.isBlank() -> {
@@ -105,17 +114,17 @@ class CreateActivity : BaseActivity() {
                 showSnackBar(getString(R.string.login_validation_valid_password))
                 false
             }
-            cnfpass.isBlank() -> {
+            cnfPass.isBlank() -> {
                 hideSoftKeyboard()
                 showSnackBar(getString(R.string.crf_pass))
                 false
             }
-            cnfpass.length < 7 -> {
+            cnfPass.length < 7 -> {
                 hideSoftKeyboard()
                 showSnackBar(getString(R.string.crf_pass_valid))
                 false
             }
-            pass != cnfpass -> {
+            pass != cnfPass -> {
                 hideSoftKeyboard()
                 showSnackBar(getString(R.string.password_not_match))
                 false

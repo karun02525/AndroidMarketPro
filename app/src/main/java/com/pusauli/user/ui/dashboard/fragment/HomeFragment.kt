@@ -3,6 +3,7 @@ package com.pusauli.user.ui.dashboard.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import com.pusauli.user.mvvm.CategoryViewModel
 import com.pusauli.user.network.Const.CATEGORY_AVATAR_BASE_URL
 import com.pusauli.user.ui.dashboard.MainActivity
 import com.pusauli.user.ui.store_list.StoreListActivity
+import com.pusauli.user.utils.deviceInfo
 import com.pusauli.user.utils.loadImage
 import com.pusauli.user.utils.showSnackBar
 import kotlinx.android.synthetic.main.adapter_menu_categories.view.*
@@ -48,6 +50,9 @@ class HomeFragment : Fragment() {
         val v= inflater.inflate(R.layout.fragment_home, container, false)
         initView(v)
         apiCall()
+
+        Log.d("TAG", "onCreateView: "+deviceInfo())
+
         return v
     }
 

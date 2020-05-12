@@ -51,7 +51,7 @@ class OtpSendActivity : BaseActivity() {
                 .putExtra("mobile", mobileNumber))
         }
         if(it.isCreate==1){
-            startActivity(Intent(this, CreateActivity::class.java)
+            startActivity(Intent(this, RegisterActivity::class.java)
                 .putExtra("mobile", mobileNumber))
         }
     }

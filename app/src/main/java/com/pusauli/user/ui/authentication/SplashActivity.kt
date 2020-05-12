@@ -37,8 +37,8 @@ class SplashActivity : BaseActivity() {
                 startNewActivityFlag(MainActivity::class.java)
                 //startNewActivityFlag(IntroSliderActivity::class.java)
             }else {
-                startNewActivityFlag(MainActivity::class.java)
-               // startNewActivityFlag(LoginActivity::class.java)
+               // startNewActivityFlag(MainActivity::class.java)
+                startNewActivityFlag(LoginActivity::class.java)
             }
            // hideProgress()
             try {
